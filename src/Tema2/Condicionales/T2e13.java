@@ -18,7 +18,7 @@ public class T2e13 {
         while (min < 0 || min > 60){
             System.out.println("bruh.");
             System.out.println("Introduce los minutos:");
-            min = a.nextInt();
+            min = b.nextInt();
         }
         System.out.println("Introduce el último número:");
         Scanner c = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class T2e13 {
         while (seg < 0 || seg > 60){
             System.out.println("bruh.");
             System.out.println("Introduce los segundos:");
-            min = a.nextInt();
+            seg = c.nextInt();
         }
         int Timepasses = h;
         int Timecounts = min;
