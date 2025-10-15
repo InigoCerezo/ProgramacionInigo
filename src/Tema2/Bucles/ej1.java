@@ -1,8 +1,8 @@
-package Tema2;
+package Tema2.Bucles;
 
 import java.util.Scanner;
 
-public class T2e2 {
+public class ej1 {
     public static void main(String[] args) {
         System.out.println("Introduce un lado del rectángulo:");
         Scanner value = new Scanner(System.in);

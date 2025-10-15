@@ -1,4 +1,4 @@
-package Tema2;
+package Tema2.Condicionales;
 
 import java.util.Scanner;
 
