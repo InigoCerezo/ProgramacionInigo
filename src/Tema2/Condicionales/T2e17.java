@@ -15,6 +15,7 @@ public class T2e17 {
                 double area = base * 2;
                 double perm = base * 4;
                 System.out.println("El area es: " + area + ", El perímetro es: " + perm);
+                return;
             case 1:
                 System.out.println("Introduce base:");
                 a = new Scanner(System.in);
@@ -25,6 +26,7 @@ public class T2e17 {
                 area = (base * altura);
                 perm = (base + altura)*2;
                 System.out.println("El area es: " + area + ", El perímetro es: " + perm);
+                return;
             case 2:
                 System.out.println("Introduce base:");
                 a = new Scanner(System.in);
@@ -34,6 +36,7 @@ public class T2e17 {
                 altura = b.nextInt();
                 area = (base * altura) / 2;
                 System.out.println("El area es: " + area);
+                return;
             default:
                 System.out.println("bruh.");
         }
