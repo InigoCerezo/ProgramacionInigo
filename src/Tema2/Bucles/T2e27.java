@@ -1,4 +1,6 @@
 package Tema2.Bucles;
+/*este ejercicio me ha hecho llorar en maneras que no creia posibles
+era tan malo*/
 public class T2e27 {
     public static void main(String[] args) {
         int contadorPrimos = 0;
