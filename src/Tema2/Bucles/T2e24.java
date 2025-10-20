@@ -10,7 +10,7 @@ public class T2e24 {
         int bien = 0;
         int mal = 0;
         while (num1 > 0) {
-            if(num1 > 10) {
+            if(num1 > 10) { //foolproof check
                 System.out.println("Introduce una nota de verdad.");
             } else if(num1 >=5 ){
                 bien++;
