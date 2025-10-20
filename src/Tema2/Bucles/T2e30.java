@@ -2,7 +2,7 @@ package Tema2.Bucles;
 import java.util.Scanner;
 public class T2e30 {
     public static void main(String[] args) {
-        char exit = 0;
+        char exit = 0; //lo que más me ha costado fue esto
         while (exit != 'Y' && exit != 'y'){
             System.out.println("Introduce un número.");
             Scanner a = new Scanner(System.in);
