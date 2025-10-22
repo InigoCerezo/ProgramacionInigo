@@ -2,7 +2,12 @@ package Tema2.Bucles;
 import java.util.Scanner;
 public class T2e30 {
     public static void main(String[] args) {
-        char exit = 0; //lo que más me ha costado fue esto
+        char exit = 'n'; //lo que más me ha costado fue esto
+        double suma = 0;
+        double resta = 0;
+        double prod = 0;
+        double div = 0;
+        double res = 0;
         while (exit != 'Y' && exit != 'y'){
             System.out.println("Introduce un número.");
             Scanner a = new Scanner(System.in);
@@ -13,23 +18,23 @@ public class T2e30 {
             double num2 = a.nextDouble();
             switch(op){
                 case '+':
-                    double suma = num1 + num2;
+                    suma = num1 + num2;
                     System.out.println("Suma: "+suma);
                     break;
                 case '-':
-                    double resta = num1 - num2;
+                    resta = num1 - num2;
                     System.out.println("Resta: "+resta);
                     break;
                 case '*':
-                    double prod = num1 * num2;
+                    prod = num1 * num2;
                     System.out.println("Multiplicación: "+ prod);
                     break;
                 case '/':
-                    double div = num1 % num2;
+                    div = num1 % num2;
                     System.out.println("División: "+ div);
                     break;
                 case '%':
-                    double res = num1 % num2;
+                    res = num1 % num2;
                     System.out.println("Resto: "+ res);
                     break;
                 default:
