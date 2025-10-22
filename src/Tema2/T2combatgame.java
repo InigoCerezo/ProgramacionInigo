@@ -1,6 +1,5 @@
 package Tema2;
 import java.util.Scanner;
-import java.util.Timer;
 
 public class T2combatgame {
     public static void main(String[] args) throws InterruptedException {
