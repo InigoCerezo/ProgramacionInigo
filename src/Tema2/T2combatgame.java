@@ -22,6 +22,7 @@ public class T2combatgame {
         turnpriority == 1 → turno de jugador 1, turnpriority ==2 → turno de jugador 2, turnpriority tiene otro valor → que dios nos ayude
         crit → critico (no se ve por co nsola
         tiebreak → moneda de cara o cruz para romper empates
+        variables string → barras de vida (harapos)
         FIN DE INICIALIZACION DE VARIABLES (lo necesita si no el programa no tira bien)
          */
         System.out.println("JUGADOR 1:");
