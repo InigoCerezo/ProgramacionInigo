@@ -11,6 +11,7 @@ public class T2combatgame {
         int pat1, pvd1, pdf1, vel1, mpvd1, mpdf1, mvel1;
         int pat2, pvd2, pdf2, vel2, mpvd2, mpdf2, mvel2;
         int turncounter, turnpriority, crit, tiebreak;
+        String hpleft1, hpleft2, hplost1, hplost2;
         boolean KO = false;
         /*
         pat1, pvd1 y demás → estadísticas del jugador 1. se introducen a mano por consola
@@ -91,19 +92,18 @@ public class T2combatgame {
 
         System.out.println("Que empiece el combate.\n");
         sleep(1000);
-        mpvd1 = pvd1;
-        mpdf1 = pdf1;
-        mvel1 = vel1;
-        mpvd2 = pvd2;
-        mpdf2 = pdf2;
-        mvel2 = vel2;
+        mpvd1 = pvd1; mpdf1 = pdf1; mvel1 = vel1; mpvd2 = pvd2; mpdf2 = pdf2; mvel2 = vel2;
+        hpleft1 = "-";
+        hplost1 = "X";
+        hpleft2 = "-";
+        hplost2 = "X";
         //puntos normales sin variación, como el ataque no tiene forma de incrementar no está incluido
         turncounter = 0;
         while(!KO){
             turncounter++;
             System.out.println("Turno Nº"+turncounter);
-            System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
-            System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
+            System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + " " + hpleft1.repeat(pvd1/2)+hplost1.repeat((mpvd1-pvd1)/2));
+            System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + " " + hpleft2.repeat(pvd2/2)+hplost2.repeat((mpvd2-pvd2)/2));
             System.out.println("Turno de...");
             sleep(1000);
             Random breacher = new Random();
@@ -257,16 +257,17 @@ public class T2combatgame {
                     System.out.println("Turno saltado.\n");
                     break;
             }
+            Thread.sleep(500);
             if (pvd1<=0){//Check si el juego se termina para salir del bucle antes
                 pvd1 = 0;
-                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
-                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
+                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + " " + hplost1.repeat((mpvd1-pvd1)/2));
+                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + " " + hpleft2.repeat(pvd2/2)+hplost2.repeat((mpvd2-pvd2)/2));
                 System.out.println("BRAVO JUGADOR 2, HAS GANADO!!!!");
                 KO= true;
             } else if (pvd2<=0) {
                 pvd2 = 0;
-                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
-                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
+                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + " " + hpleft1.repeat(pvd1/2)+hplost1.repeat((mpvd1-pvd1)/2));
+                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + " " + hplost2.repeat((mpvd2-pvd2)/2));
                 System.out.println("BRAVO JUGADOR 1, HAS GANADO!!!!");
                 KO = true;
             }
@@ -281,8 +282,8 @@ public class T2combatgame {
                     System.out.println("TURNO DE JUGADOR 1");
                 }
                 crit = breacher.nextInt(20)+1;//el 0 nunca ha existido
-                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
-                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
+                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + " " + hpleft1.repeat(pvd1/2) + hplost1.repeat((mpvd1-pvd1)/2));
+                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + " " + hpleft2.repeat(pvd2/2) + hplost2.repeat((mpvd2-pvd2)/2));
                 System.out.println("¿Cual va a ser tu acción?");
                 System.out.println("A. Atacar / B. Defender / C. Regenerar. / D. Focus / Cualquier otra tecla: Saltar turno");
                 act = c.next().charAt(0);
@@ -413,16 +414,17 @@ public class T2combatgame {
                         System.out.println("Turno saltado.\n");
                         break;
                 }
+                Thread.sleep(500);
                 if (pvd1 <= 0) {//check si el juego se termina para salir del bucle
                     pvd1 = 0;
-                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
-                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
+                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + " " + hplost1.repeat((mpvd1-pvd1)/2));
+                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + " " + hpleft2.repeat(pvd2/2) + hplost2.repeat((mpvd2-pvd2)/2));
                     System.out.println("BRAVO JUGADOR 2, HAS GANADO!!!!");
                     KO = true;
                 } else if (pvd2 <= 0) {
                     pvd2 = 0;
-                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
-                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
+                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + " " + hpleft1.repeat(pvd1/2) + hplost1.repeat((mpvd1-pvd1)/2));
+                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + " " + hplost2.repeat((mpvd2-pvd2)/2));
                     System.out.println("BRAVO JUGADOR 1, HAS GANADO!!!!");
                     KO = true;
                 }
