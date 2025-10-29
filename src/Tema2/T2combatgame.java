@@ -2,6 +2,8 @@ package Tema2;
 import java.util.Random;
 import java.util.Scanner;
 
+import static java.lang.Thread.sleep;
+
 
 public class T2combatgame {
     public static void main(String[] args) throws InterruptedException {
@@ -44,7 +46,7 @@ public class T2combatgame {
             }
 
         }while (pat1 + pvd1 + pdf1 + vel1 > 500);
-        Thread.sleep(1000);
+        sleep(1000);
 
         //Añade una pequeña pausa entre jugadores
 
@@ -78,31 +80,26 @@ public class T2combatgame {
                 System.out.println("La suma de todo no puede ser más de 500.");
             }
         }while (pat2 + pvd2 + pdf2 + vel2 > 500);
-        Thread.sleep(450);
-        System.out.println("Que empiece el combate.\n");
-        Thread.sleep(1000);
 
+        System.out.println("Que empiece el combate.\n");
+        sleep(1000);
         mpvd1 = pvd1;
         mpdf1 = pdf1;
         mvel1 = vel1;
         mpvd2 = pvd2;
         mpdf2 = pdf2;
         mvel2 = vel2;
-
         //puntos normales sin variación, como el ataque no tiene forma de incrementar no está incluido
-
         turncounter = 0; //Contador de turnos
-
         while(!KO){
             turncounter++;
             System.out.println("Turno Nº"+turncounter);
-            Thread.sleep(1000);
-            System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1);
-            System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2);
+            System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
+            System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
             System.out.println("Turno de...");
-            Thread.sleep(1000);
+            sleep(1000);
             Random breacher = new Random();
-            crit = breacher.nextInt(21);//Probabilidad de crítico (no vista en consola)
+            crit = breacher.nextInt(20)+1;//Probabilidad de crítico (no vista en consola) (el 0 no existe)
             if (vel1 == vel2) {
                 Random breaker = new Random();
                 tiebreak = breaker.nextInt(2) +1;//Tiro de moneda para ver quien tiene el turno si las velocidades son iguales
@@ -133,52 +130,52 @@ public class T2combatgame {
                         if (crit ==20){
                             pvd2 = pvd2 - ((pat1-(pdf2/4))+25);
                             System.out.println("Jugador uno ataca a jugador 2.");
-                            Thread.sleep(350);
+                            sleep(350);
                             System.out.println("CRITICO!!!");
-                            Thread.sleep(150);
+                            sleep(150);
                             System.out.println("Hiciste "+ ((pat1-(pdf2/4))+25) + " de daño.\n");
-                            Thread.sleep(450);
+                            sleep(450);
                         }else {
                             if (pat1-pdf2/2<=0){
                                 pvd2 = pvd2-1;
                                 System.out.println("Jugador uno ataca a jugador 2.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 System.out.println("Poco eficaz...");
-                                Thread.sleep(150);
+                                sleep(150);
                                 System.out.println("Hiciste 1 de daño.\n");
-                                Thread.sleep(450);
+                                sleep(450);
                             }else{
                                 pvd2 = pvd2 - (pat1-pdf2/2);
                                 System.out.println("Jugador uno ataca a jugador dos.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 System.out.println("Hiciste "+ (pat1-pdf2/2) + " de daño.\n");
-                                Thread.sleep(450);
+                                sleep(450);
                             }
                         }
                     }else{
                         if (crit ==20){
                             pvd1 = pvd1 - ((pat2-(pdf1/4))+25);
                             System.out.println("Jugador dos ataca a jugador uno.");
-                            Thread.sleep(350);
+                            sleep(350);
                             System.out.println("CRITICO!!!");
-                            Thread.sleep(150);
+                            sleep(150);
                             System.out.println("Hiciste "+ ((pat2-(pdf1/4))+25) + " de daño.\n");
-                            Thread.sleep(450);
+                            sleep(450);
                         }else {
                             if (pat2-pdf1/2<=0){
                                 pvd1 = pvd1-1;
                                 System.out.println("Jugador dos ataca a jugador uno.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 System.out.println("Poco eficaz...");
-                                Thread.sleep(150);
+                                sleep(150);
                                 System.out.println("Hiciste 1 de daño.\n");
-                                Thread.sleep(450);
+                                sleep(450);
                             }else{
                                 pvd1 = pvd1 - (pat2-pdf1/2);
                                 System.out.println("Jugador dos ataca a jugador uno.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 System.out.println("Hiciste "+ (pat2-pdf1/2) + " de daño.\n");
-                                Thread.sleep(450);
+                                sleep(450);
                             }
                         }
                     }
@@ -192,7 +189,7 @@ public class T2combatgame {
                             pdf1 = pdf1 * 2;
                         }
                         System.out.println("Jugador uno se defiende.\n");
-                        Thread.sleep(350);
+                        sleep(350);
                     }else {
                         if(crit == 4){
                             pdf2 = pdf2 * 4;
@@ -200,7 +197,7 @@ public class T2combatgame {
                             pdf2 = pdf2 * 2;
                         }
                         System.out.println("Jugador dos se defiende.\n");
-                        Thread.sleep(350);
+                        sleep(350);
                     }
                     break;
                 case 'c':
@@ -208,11 +205,11 @@ public class T2combatgame {
                     if (turnpriority==1){
                         if(crit == 13){
                             System.out.println("Jugador uno restaura "+ (mpvd1 /2) +" puntos de vida.");
-                            Thread.sleep(350);
+                            sleep(350);
                             pvd1 = pvd1+ mpvd1 /2;
                         }else {
                             System.out.println("Jugador uno restaura "+ (mpvd1 /8) +" puntos de vida.");
-                            Thread.sleep(350);
+                            sleep(350);
                             pvd1 = pvd1+ mpvd1 /8;
                         }
                         if(pvd1 > mpvd1){
@@ -222,11 +219,11 @@ public class T2combatgame {
                     }else {
                         if(crit == 13){
                             System.out.println("Jugador dos restaura "+ (mpvd2 /2) +" puntos de vida.");
-                            Thread.sleep(350);
+                            sleep(350);
                             pvd2 = pvd2+ mpvd2 /2;
                         }else {
                             System.out.println("Jugador dos restaura "+ (mpvd2 /8) +" puntos de vida.");
-                            Thread.sleep(350);
+                            sleep(350);
                             pvd2 = pvd2+ mpvd2 /8;
                         }
                         if(pvd2 > mpvd2){
@@ -241,27 +238,27 @@ public class T2combatgame {
                     if (turnpriority==1){
                         vel1 = mvel1 + vel1/10;
                         System.out.println("Jugador uno incrementa su velocidad.\n");
-                        Thread.sleep(350);
+                        sleep(350);
                     }else{
                         vel2 = mvel2 + vel2/10;
                         System.out.println("Jugador dos incrementa su velocidad.\n");
-                        Thread.sleep(350);
+                        sleep(350);
                     }
                     break;
                 default:
                     System.out.println("Turno saltado.\n");
                     break;
             }
-            if (pvd1<=0){
+            if (pvd1<=0){//Check si el juego se termina para salir del bucle antes
                 pvd1 = 0;
-                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1);
-                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2);
+                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
+                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
                 System.out.println("BRAVO JUGADOR 2, HAS GANADO!!!!");
                 KO= true;
             } else if (pvd2<=0) {
                 pvd2 = 0;
-                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1);
-                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2);
+                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
+                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
                 System.out.println("BRAVO JUGADOR 1, HAS GANADO!!!!");
                 KO = true;
             }
@@ -275,9 +272,9 @@ public class T2combatgame {
                     turnpriority--;
                     System.out.println("TURNO DE JUGADOR 1");
                 }
-                crit = breacher.nextInt(21);
-                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1);
-                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2);
+                crit = breacher.nextInt(20)+1;//Probabilidad de crítico (aún no se puede ver en consola) (el 0 nunca ha existido)
+                System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
+                System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
                 System.out.println("¿Cual va a ser tu acción?");
                 System.out.println("A. Atacar / B. Defender / C. Regenerar. / D. Focus / Cualquier otra tecla: Saltar turno");
                 act = c.next().charAt(0);
@@ -288,52 +285,52 @@ public class T2combatgame {
                             if (crit == 20) {
                                 pvd2 = pvd2 - ((pat1 - (pdf2 / 4)) + 25);
                                 System.out.println("Jugador uno ataca a jugador 2.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 System.out.println("CRITICO!!!");
-                                Thread.sleep(150);
+                                sleep(150);
                                 System.out.println("Hiciste " + ((pat1 - (pdf2 / 4)) + 25) + " de daño.\n");
-                                Thread.sleep(450);
+                                sleep(450);
                             } else {
                                 if (pat1 - pdf2 / 2 <= 0) {
                                     pvd2 = pvd2 - 1;
                                     System.out.println("Jugador uno ataca a jugador 2.");
-                                    Thread.sleep(350);
+                                    sleep(350);
                                     System.out.println("Poco eficaz...");
-                                    Thread.sleep(150);
+                                    sleep(150);
                                     System.out.println("Hiciste 1 de daño.\n");
-                                    Thread.sleep(450);
+                                    sleep(450);
                                 } else {
                                     pvd2 = pvd2 - (pat1 - pdf2 / 2);
                                     System.out.println("Jugador uno ataca a jugador dos.");
-                                    Thread.sleep(350);
+                                    sleep(350);
                                     System.out.println("Hiciste " + (pat1 - pdf2 / 2) + " de daño.\n");
-                                    Thread.sleep(450);
+                                    sleep(450);
                                 }
                             }
                         } else {
                             if (crit == 20) {
                                 pvd1 = pvd1 - ((pat2 - (pdf1 / 4)) + 25);
                                 System.out.println("Jugador dos ataca a jugador uno.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 System.out.println("CRITICO!!!");
-                                Thread.sleep(150);
+                                sleep(150);
                                 System.out.println("Hiciste " + ((pat2 - (pdf1 / 4)) + 25) + " de daño.\n");
-                                Thread.sleep(450);
+                                sleep(450);
                             } else {
                                 if (pat2 - pdf1 / 2 <= 0) {
                                     pvd1 = pvd1 - 1;
                                     System.out.println("Jugador dos ataca a jugador uno.");
-                                    Thread.sleep(350);
+                                    sleep(350);
                                     System.out.println("Poco eficaz...");
-                                    Thread.sleep(150);
+                                    sleep(150);
                                     System.out.println("Hiciste 1 de daño.\n");
-                                    Thread.sleep(450);
+                                    sleep(450);
                                 } else {
                                     pvd1 = pvd1 - (pat2 - pdf1 / 2);
                                     System.out.println("Jugador dos ataca a jugador uno.");
-                                    Thread.sleep(350);
+                                    sleep(350);
                                     System.out.println("Hiciste " + (pat2 - pdf1 / 2) + " de daño.\n");
-                                    Thread.sleep(450);
+                                    sleep(450);
                                 }
                             }
                         }
@@ -347,7 +344,7 @@ public class T2combatgame {
                                 pdf1 = pdf1 * 2;
                             }
                             System.out.println("Jugador uno se defiende.\n");
-                            Thread.sleep(350);
+                            sleep(350);
                         } else {
                             if (crit == 4) {
                                 pdf2 = pdf2 * 4;
@@ -355,7 +352,7 @@ public class T2combatgame {
                                 pdf2 = pdf2 * 2;
                             }
                             System.out.println("Jugador dos se defiende.\n");
-                            Thread.sleep(350);
+                            sleep(350);
                         }
                         break;
                     case 'c':
@@ -363,12 +360,12 @@ public class T2combatgame {
                         if (turnpriority == 1) {
                             if (crit == 13) {
                                 System.out.println("Jugador uno restaura " + (mpvd1 / 2) + " puntos de vida.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 pvd1 = pvd1 + mpvd1 / 2;
 
                             } else {
                                 System.out.println("Jugador uno restaura " + (mpvd1 / 8) + " puntos de vida.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 pvd1 = pvd1 + mpvd1 / 8;
                             }
                             if (pvd1 > mpvd1) {
@@ -378,11 +375,11 @@ public class T2combatgame {
                         } else {
                             if (crit == 13) {
                                 System.out.println("Jugador dos restaura " + (mpvd2 / 2) + " puntos de vida.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 pvd2 = pvd2 + mpvd2 / 2;
                             } else {
                                 System.out.println("Jugador dos restaura " + (mpvd2 / 8) + " puntos de vida.");
-                                Thread.sleep(350);
+                                sleep(350);
                                 pvd2 = pvd2 + mpvd2 / 8; //cuanta más vida tienes más regeneras
                             }
                             if (pvd2 > mpvd2) {
@@ -397,27 +394,27 @@ public class T2combatgame {
                         if (turnpriority == 1) {
                             vel1 = mvel1 + vel1 / 10;
                             System.out.println("Jugador uno incrementa su velocidad.\n");
-                            Thread.sleep(350);
+                            sleep(350);
                         } else {
                             vel2 = mvel2 + vel2 / 10;
                             System.out.println("Jugador dos incrementa su velocidad.\n");
-                            Thread.sleep(350);
+                            sleep(350);
                         }
                         break;
                     default:
                         System.out.println("Turno saltado.\n");
                         break;
                 }
-                if (pvd1 <= 0) {
+                if (pvd1 <= 0) {//check si el juego se termina para salir del bucle
                     pvd1 = 0;
-                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1);
-                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2);
+                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
+                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
                     System.out.println("BRAVO JUGADOR 2, HAS GANADO!!!!");
                     KO = true;
                 } else if (pvd2 <= 0) {
                     pvd2 = 0;
-                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1);
-                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2);
+                    System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
+                    System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
                     System.out.println("BRAVO JUGADOR 1, HAS GANADO!!!!");
                     KO = true;
                 }
@@ -425,3 +422,6 @@ public class T2combatgame {
         }
     }
 }
+//i am shedletski im supposed to miss
+//yea
+//i am shed let's ski
