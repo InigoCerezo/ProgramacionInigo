@@ -1,9 +1,7 @@
 package Tema2;
 import java.util.Random;
 import java.util.Scanner;
-
 import static java.lang.Thread.sleep;
-
 
 public class T2combatgame {
     public static void main(String[] args) throws InterruptedException {
@@ -14,7 +12,17 @@ public class T2combatgame {
         int pat2, pvd2, pdf2, vel2, mpvd2, mpdf2, mvel2;
         int turncounter, turnpriority, crit, tiebreak;
         boolean KO = false;
-        //FIN DE INICIALIZACION DE VARIABLES (lo necesita si no el programa no tira bien)
+        /*
+        pat1, pvd1 y demás → estadísticas del jugador 1. se introducen a mano por consola
+        mpvd1, mpdf1 y mvel1 → estadísticas finales del jugador 1 que no deben cambiar
+        pat2, pvd2 y demás → estadísticas del jugador 2. se introducen a mano por consola
+        mpvd2, mpdf2 y mvel2 → estadísticas finales del jugador 2 que no deben cambiar
+        turncounter → Contador de turnos
+        turnpriority == 1 → turno de jugador 1, turnpriority ==2 → turno de jugador 2, turnpriority tiene otro valor → que dios nos ayude
+        crit → critico (no se ve por co nsola
+        tiebreak → moneda de cara o cruz para romper empates
+        FIN DE INICIALIZACION DE VARIABLES (lo necesita si no el programa no tira bien)
+         */
         System.out.println("JUGADOR 1:");
         do{
             System.out.println("Introduce los puntos de vida.");
@@ -90,7 +98,7 @@ public class T2combatgame {
         mpdf2 = pdf2;
         mvel2 = vel2;
         //puntos normales sin variación, como el ataque no tiene forma de incrementar no está incluido
-        turncounter = 0; //Contador de turnos
+        turncounter = 0;
         while(!KO){
             turncounter++;
             System.out.println("Turno Nº"+turncounter);
@@ -99,7 +107,7 @@ public class T2combatgame {
             System.out.println("Turno de...");
             sleep(1000);
             Random breacher = new Random();
-            crit = breacher.nextInt(20)+1;//Probabilidad de crítico (no vista en consola) (el 0 no existe)
+            crit = breacher.nextInt(20)+1;//el 0 no existe
             if (vel1 == vel2) {
                 Random breaker = new Random();
                 tiebreak = breaker.nextInt(2) +1;//Tiro de moneda para ver quien tiene el turno si las velocidades son iguales
@@ -129,7 +137,7 @@ public class T2combatgame {
                     if (turnpriority==1){
                         if (crit ==20){
                             pvd2 = pvd2 - ((pat1-(pdf2/4))+25);
-                            System.out.println("Jugador uno ataca a jugador 2.");
+                            System.out.println("Jugador uno ataca a jugador dos.");
                             sleep(350);
                             System.out.println("CRITICO!!!");
                             sleep(150);
@@ -138,7 +146,7 @@ public class T2combatgame {
                         }else {
                             if (pat1-pdf2/2<=0){
                                 pvd2 = pvd2-1;
-                                System.out.println("Jugador uno ataca a jugador 2.");
+                                System.out.println("Jugador uno ataca a jugador dos.");
                                 sleep(350);
                                 System.out.println("Poco eficaz...");
                                 sleep(150);
@@ -272,7 +280,7 @@ public class T2combatgame {
                     turnpriority--;
                     System.out.println("TURNO DE JUGADOR 1");
                 }
-                crit = breacher.nextInt(20)+1;//Probabilidad de crítico (aún no se puede ver en consola) (el 0 nunca ha existido)
+                crit = breacher.nextInt(20)+1;//el 0 nunca ha existido
                 System.out.println("JUGADOR 1: " + pvd1 + "/" + mpvd1 + "Puntos de Vida");
                 System.out.println("JUGADOR 2: " + pvd2 + "/" + mpvd2 + "Puntos de Vida");
                 System.out.println("¿Cual va a ser tu acción?");
@@ -387,7 +395,7 @@ public class T2combatgame {
                                 pvd2 = mpvd2;
                             }
                         }
-                        System.out.println(" ");
+                        System.out.println(" ");// salto de linea
                         break;
                     case 'd':
                     case 'D':
