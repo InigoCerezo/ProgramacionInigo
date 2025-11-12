@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class T2e30 {
     public static void main(String[] args) {
         char exit = 'n'; //lo que más me ha costado fue esto
-        double suma = 0;
-        double resta = 0;
-        double prod = 0;
-        double div = 0;
-        double res = 0;
+        double suma;
+        double resta;
+        double prod;
+        double div;
+        double res;
         while (exit != 'Y' && exit != 'y'){
             System.out.println("Introduce un número.");
             Scanner a = new Scanner(System.in);
