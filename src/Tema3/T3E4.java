@@ -9,7 +9,7 @@ public class T3E4 {
         System.out.println("--------------------------------------");
         System.out.println("1 - Convertir dolares a euros");
         System.out.println("2 - Convertir euros a dolares");
-        System.out.println("Ctro número - Salir");
+        System.out.println("Otro número - Salir");
     }
     public static double dollar2euro(double euros){
         return euros*0.853;
