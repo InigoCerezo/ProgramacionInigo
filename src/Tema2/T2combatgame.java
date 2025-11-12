@@ -23,7 +23,6 @@ public class T2combatgame {
         crit → critico (no se ve por co nsola
         tiebreak → moneda de cara o cruz para romper empates
         variables string → barras de vida (harapos)
-        FIN DE INICIALIZACION DE VARIABLES (lo necesita si no el programa no tira bien)
          */
         System.out.println("JUGADOR 1:");
         do{
@@ -94,11 +93,11 @@ public class T2combatgame {
         System.out.println("Que empiece el combate.\n");
         sleep(1000);
         mpvd1 = pvd1; mpdf1 = pdf1; mvel1 = vel1; mpvd2 = pvd2; mpdf2 = pdf2; mvel2 = vel2;
+        //puntos normales sin variación, como el ataque no tiene forma de incrementar no está incluido
         hpleft1 = "-";
         hplost1 = "X";
         hpleft2 = "-";
         hplost2 = "X";
-        //puntos normales sin variación, como el ataque no tiene forma de incrementar no está incluido
         turncounter = 0;
         while(!KO){
             turncounter++;
