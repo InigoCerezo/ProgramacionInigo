@@ -12,11 +12,11 @@ public class T3E8 {
             }else if(a>28){
                 return false;
             }
-        } else if ((b % 2 == 0 && b <7)||(b % 2 == 1 && b >=8)){
+        } else if ((b % 2 == 0 && b <7)||(b % 2 == 1 && b >=7)){
             if (a>30||a<0) {
                 return false;
             }
-        }else if((b % 2 == 1 && b <7)||(b % 2 == 0 && b >=8)){
+        }else if((b % 2 == 1 && b <7)||(b % 2 == 0 && b >=7)){
             if (a>31||a<0) {
                 return false;
             }

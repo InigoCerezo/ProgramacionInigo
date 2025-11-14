@@ -18,7 +18,7 @@ public class T3E4 {
         return dolla*1.157;
     }
     public static void main(String[] args){
-        int dinero;
+        double dinero;
         DecimalFormat df = new DecimalFormat("0.00");
         Scanner scanner = new Scanner(System.in);
         showMenu();
@@ -26,12 +26,12 @@ public class T3E4 {
         switch (choose) {
             case 1:
                 System.out.println("Introduce una cantidad de dolares:");
-                dinero = scanner.nextInt();
+                dinero = scanner.nextDouble();
                 System.out.println(df.format(dinero) +" dolares equivalen a "+ df.format(dollar2euro(dinero)) + " euros.");
                 break;
             case 2:
                 System.out.println("Introduce una cantidad de euros:");
-                dinero = scanner.nextInt();
+                dinero = scanner.nextDouble();
                 System.out.println(df.format(dinero) +" euros equivalen a "+ df.format(euro2dollar(dinero)) + " dolares.");
                 break;
             default:
