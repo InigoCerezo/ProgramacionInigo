@@ -38,7 +38,7 @@ public class T3E10 {
             globalMenu();
             eleccion = es.next().charAt(0);
             switch (eleccion) {
-                case 'a':
+                case 'a'://Ejercicio 1
                     System.out.println("Introduce un número y te dire si es positivo, negativo, o cero:");
                     num1 = es.nextInt();
                     num2 = numberSign(num1);//modulo del ejercicio 1 la cual hace el trabajo
@@ -50,7 +50,7 @@ public class T3E10 {
                         System.out.println("El número es positivo");
                     }
                     break;
-                case 'b':
+                case 'b'://Ejercicio 2
                     System.out.println("Introduce una edad:");
                     num1 = es.nextInt();
                     result = isAdult(num1);//modulo del ejercicio 2 la cual hace el trabajo
