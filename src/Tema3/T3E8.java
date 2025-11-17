@@ -12,11 +12,11 @@ public class T3E8 {
             }else if(a>28){
                 return false;
             }
-        } else if ((b % 2 == 0 && b <7)||(b % 2 == 1 && b >=8)){
+        } else if ((b % 2 == 0 && b <7)||(b % 2 == 1 && b >=7)){
             if (a>30||a<0) {
                 return false;
             }
-        }else if((b % 2 == 1 && b <7)||(b % 2 == 0 && b >=8)){
+        }else if((b % 2 == 1 && b <7)||(b % 2 == 0 && b >=7)){
             if (a>31||a<0) {
                 return false;
             }
@@ -33,8 +33,10 @@ public class T3E8 {
         System.out.println("Introduce el año (Utiliza números):");
         anio = c.nextInt();
         if (dateCheck(dia, mes, anio)) {
+            System.out.println(dia+"/"+mes+"/"+anio);
             System.out.println("La fecha es correcta, bien.");
         }else{
+            System.out.println(dia+"/"+mes+"/"+anio+"?");
             System.out.println("La fecha es incorrecta, mal.");
         }
     }
