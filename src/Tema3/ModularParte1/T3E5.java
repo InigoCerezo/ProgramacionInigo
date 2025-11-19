@@ -3,10 +3,14 @@ package Tema3.ModularParte1;
 import java.util.Scanner;
 
 public class T3E5 {
-    public static void mutliplication(int a) { // throws InterruptedException
+    public static void mutliplication(int a) throws InterruptedException {
         System.out.println("Tabla de multiplicar del numero "+a+" al 10.");
         System.out.println("--------------------------------------");
-        System.out.println(a +" * 1 = " + a*1);
+        for (int b = 1; b <= 10; b++) {
+            System.out.println(a +" * " + b + " = " + a*b);
+            Thread.sleep(250);
+        }
+        /*System.out.println(a +" * 1 = " + a*1);
         //Thread.sleep(200);
         System.out.println(a +" * 2 = " + a*2);
         //Thread.sleep(200);
@@ -25,7 +29,7 @@ public class T3E5 {
         System.out.println(a +" * 9 = " + a*9);
         //Thread.sleep(200);
         System.out.println(a +" * 10 = " + a*10);
-        //Thread.sleep(200);
+        //Thread.sleep(200);*/
     }
     public static void main(String[] args) throws InterruptedException{
         Scanner scanner = new Scanner(System.in);

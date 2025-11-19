@@ -27,7 +27,7 @@ public class T3E10 {
         System.out.println("i - Comprobar si un número es positivo o negativo");
         System.out.println("Otra opción - Salir");
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         Scanner es = new Scanner(System.in);
         int num1, num2, radio, choose, failure, dia, mes, anio, altura;
         double dinero;
