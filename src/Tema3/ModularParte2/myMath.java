@@ -29,6 +29,11 @@ public class myMath {
         return a % b == 0;
     }
     /// ----------------------EJERCICIO 3
+    public static void longitudNumero(int a) {
+        int b = Integer.toString(a).length();
+        System.out.println("El número " + a + " tiene " + b + " dígitos");
+    }
+    /// ----------------------EJERCICIO 4
     public static void paresEnNumero(String a) {
         for(int i=0;i<a.length();i++) {
             int par = Integer.parseInt(a.charAt(a.length()-1-i) + "");
@@ -37,4 +42,5 @@ public class myMath {
             }
         }
     }
+
 }
