@@ -1,8 +1,6 @@
-package Tema3;
-
+package Tema3.ModularParte1;
 import java.util.Scanner;
-
-import static Tema3.T3E1.numberSign;
+import static Tema3.ModularParte1.T3E1.numberSign;
 
 public class T3E2 {
     public static boolean isAdult(int a){

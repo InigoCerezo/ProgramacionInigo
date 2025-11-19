@@ -1,10 +1,10 @@
-package Tema3;
+package Tema3.ModularParte1;
 
 import java.util.Scanner;
 
 public class T3E5 {
     public static void mutliplication(int a) { // throws InterruptedException
-        System.out.println("Tabla de multiplicar del numero "+a+".");
+        System.out.println("Tabla de multiplicar del numero "+a+" al 10.");
         System.out.println("--------------------------------------");
         System.out.println(a +" * 1 = " + a*1);
         //Thread.sleep(200);

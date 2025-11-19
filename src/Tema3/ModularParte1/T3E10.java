@@ -1,16 +1,16 @@
-package Tema3;
+package Tema3.ModularParte1;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-import static Tema3.T3E1.numberSign;
-import static Tema3.T3E2.isAdult;
-import static Tema3.T3E3.*;
-import static Tema3.T3E4.*;
-import static Tema3.T3E5.mutliplication;
-import static Tema3.T3E7.isprime;
-import static Tema3.T3E8.dateCheck;
-import static Tema3.T3E9.piramide;
+import static Tema3.ModularParte1.T3E1.numberSign;
+import static Tema3.ModularParte1.T3E2.isAdult;
+import static Tema3.ModularParte1.T3E3.*;
+import static Tema3.ModularParte1.T3E4.*;
+import static Tema3.ModularParte1.T3E5.mutliplication;
+import static Tema3.ModularParte1.T3E7.isprime;
+import static Tema3.ModularParte1.T3E8.dateCheck;
+import static Tema3.ModularParte1.T3E9.piramide;
 
 public class T3E10 {
     public static void globalMenu() {

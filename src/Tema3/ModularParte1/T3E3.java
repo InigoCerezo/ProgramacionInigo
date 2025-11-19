@@ -1,4 +1,4 @@
-package Tema3;
+package Tema3.ModularParte1;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

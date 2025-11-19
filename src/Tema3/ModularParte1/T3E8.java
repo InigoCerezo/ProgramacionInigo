@@ -1,6 +1,6 @@
-package Tema3;
+package Tema3.ModularParte1;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class T3E8 {
     public static boolean dateCheck(int a, int b, int c) {
