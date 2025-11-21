@@ -12,9 +12,9 @@ public class T2e22 {
             num1 = num1/10;
             divis++;
         }
-        if (divis > 1){
+        if (divis <= 1){
             System.out.println("Tu número tiene "+divis+" cifra.");
-    }else {
+        }else {
             System.out.println("Tu número tiene "+divis+" cifras.");
         }
     }
