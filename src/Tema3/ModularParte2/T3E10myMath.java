@@ -2,7 +2,7 @@ package Tema3.ModularParte2;
 
 import java.util.Scanner;
 
-import static Tema3.ModularParte2.myMath.*;
+import static Tema3.ModularParte2.MyMath.*;
 
 public class T3E10myMath {
     public static void main(String[] args) {
@@ -91,7 +91,7 @@ public class T3E10myMath {
                 case 'c'://Ejercicio 3
                     System.out.println("Introduce un número: ");
                     num1 = sc.nextInt();
-                    longitudNumero(num1);
+                    System.out.println("El número dado tiene" + longitudNumero(num1) + " cifras.");
                     break;
                 case 'd'://Ejercicio 4
                     System.out.println("Introduce un número: ");
@@ -121,7 +121,7 @@ public class T3E10myMath {
                     num2 = sc.nextInt();
                     System.out.println("Introduce el tercer coeficiente (c):");
                     num3 = sc.nextInt();
-                    segundoGrado(num1, num2, num3);
+                    System.out.println("Soluciones posibles: "+ segundoGrado(num1, num2, num3));
                     break;
                 case 'i'://Ejercicio 9
                     System.out.println("Introduce un número:");

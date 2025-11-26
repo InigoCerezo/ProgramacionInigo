@@ -1,5 +1,7 @@
 package Tema3.ModularParte1;
 
+import Tema3.ModularParte2.MyMath;
+
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
