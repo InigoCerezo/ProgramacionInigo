@@ -59,6 +59,8 @@ public class T3E10myMath {
                                 }
                                 if (fail == 0) {
                                     System.out.println("El numero " + num1 + " es primo.");
+                                }else{
+                                    System.out.println(isPrime(num1, num2));
                                 }
                             } else {
                                 System.out.println("El numero no era positivo.");
@@ -78,6 +80,8 @@ public class T3E10myMath {
                                 }
                                 if (fail == 0) {
                                     System.out.println("El numero " + num1 + " no es primo.");
+                                }else{
+                                    System.out.println(!isNotPrime(num1, num2));
                                 }
                             } else {
                                 System.out.println("El numero no era positivo.");
@@ -95,13 +99,13 @@ public class T3E10myMath {
                     break;
                 case 'd'://Ejercicio 4
                     System.out.println("Introduce un número: ");
-                    str1 = sc.next();
-                    paresEnNumero(str1);
+                    num1 = sc.nextInt();
+                    System.out.println("Numero par: " + paresEnNumero(num1));
                     break;
                 case 'e'://Ejercicio 5
                     System.out.println("Introduce un número: ");
-                    str1 = sc.next();
-                    imparesEnNumero(str1);
+                    num1 = sc.nextInt();
+                    System.out.println("Numero impar: " + imparesEnNumero(num1));
                     break;
                 case 'f'://Ejercicio 6
                     System.out.println("Introduce un número: ");
@@ -126,7 +130,7 @@ public class T3E10myMath {
                 case 'i'://Ejercicio 9
                     System.out.println("Introduce un número:");
                     str1 = sc.next();
-                    sumaEntreNumeros(str1);
+                    System.out.println("La suma de los digitos del número "+str1+" es igual a: " + sumaEntreNumeros(str1));
                     break;
                 default:
                     System.out.println("Opción no valida.");
