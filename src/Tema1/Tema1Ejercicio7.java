@@ -1,4 +1,4 @@
-package ProgramaciónAna;
+package Tema1;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ProgramacionAna;
+package Tema1;
 
 public class Tema1Ejercicio5{
     public static void main(String[] args) {
