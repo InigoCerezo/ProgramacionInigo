@@ -160,9 +160,32 @@ public class MyArray {
                     System.out.println("El producto escalar es igual a: " + scalarArray(grades, marks, val1, val2, val3, val4));
                     break;
                 case 'i':
-                    System.out.println(Arrays.toString(inverseArray(grades)));
+                    System.out.println("Elige un array (G o M): ");
+                    eleccion = sc.next().charAt(0);
+                    switch(eleccion){
+                        case 'g':
+                        case 'G':
+                            System.out.println(Arrays.toString(inverseArray(grades)));
+                            break;
+                        case 'm':
+                        case 'M':
+                            System.out.println(Arrays.toString(inverseArray(grades)));
+                            break;
+                    }
                     break;
                 case 'j':
+                    System.out.println("Elige un array (G o M): ");
+                    eleccion = sc.next().charAt(0);
+                    switch(eleccion){
+                        case 'g':
+                        case 'G':
+                            inverseVoidArray(grades);
+                            break;
+                        case 'm':
+                        case 'M':
+                            inverseVoidArray(marks);
+                            break;
+                    }
                     inverseVoidArray(grades);
                     break;
                 case 'k':
