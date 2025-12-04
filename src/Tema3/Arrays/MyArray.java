@@ -26,6 +26,7 @@ public class MyArray {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + ", ");
         }
+        System.out.println();
     }
     public static int minArray(int[] a) {
         int min = a[0]+99;
@@ -165,7 +166,8 @@ public class MyArray {
                     switch(eleccion){
                         case 'g':
                         case 'G':
-                            System.out.println(Arrays.toString(inverseArray(grades)));
+                            printArray(inverseArray(grades));
+                            //System.out.println(Arrays.toString(inverseArray(grades)));
                             break;
                         case 'm':
                         case 'M':
