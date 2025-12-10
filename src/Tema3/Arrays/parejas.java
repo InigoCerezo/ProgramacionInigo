@@ -65,10 +65,10 @@ public class parejas {
 
     // procedimiento para imprimir el tablero
     public static void imprimirTablero(String[] tablero, boolean[] visible) {
-        System.out.println("\n--- TABLERO DE MEMORIA ---");
+        System.out.println("--- TABLERO DE MEMORIA ---");
         for (int i = 0; i < tablero.length; i++) {
-            // Salto de línea cada 5 elementos para que se vea como una cuadrícula (4x5)
-            if (i % 5 == 0 && i != 0) {
+            // Salto de línea cada 10 elementos para que se vea bien (en mi opinion la cual es FACTO)
+            if (i % 10 == 0 && i != 0) {
                 System.out.println();
             }
             if (visible[i]) {// Si está visible, mostramos el nombre (ajustado a 8 espacios)
