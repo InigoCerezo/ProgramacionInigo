@@ -20,7 +20,6 @@ public class MyMath {
     public static double circleArea(double a) {
         return Math.PI * (a * a);
     }
-
     /// ----------------------EJERCICIO 2
     public static boolean isPrime(int a, int b) {
         return a % b != 0;
