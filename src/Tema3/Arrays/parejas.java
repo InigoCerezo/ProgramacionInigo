@@ -45,16 +45,16 @@ public class parejas {
                 imprimirTablero(tablero, visible);
                 System.out.println("\n¡CORRECTO! Has encontrado una pareja de " + tablero[pos1] + ".");
                 parejasEncontradas++;
-                // No cambiamos 'visible' a false, se quedan true para siempre
+                // ya que has encontrado las parejas, estas se quedan en 'true' hasta que se acabe el juego
             } else {
                 System.out.println("INCORRECTO. No son pareja.");
-                // Esperamos 3 segundos para que el jugador memorice
                 System.out.println("Memoriza las cartas... se ocultarán en 3 segundos.");
                 imprimirTablero(tablero, visible);
+                // si tienes un comando para hacer esto pero mejor me lo dices
                 Thread.sleep(3000);
-                // Ocultamos las cartas de nuevo y "limpiamos" la pantalla con saltos de línea
                 visible[pos1] = false;
                 visible[pos2] = false;
+                // ocultamos las cartas de nuevo y "limpiamos" la pantalla con saltos de línea
                 limpiarPantalla();
             }
         }
@@ -106,7 +106,7 @@ public class parejas {
         return pos;
     }
 
-    // l,impieza de pantalla
+    // limpieza de pantalla, si tienes otra función o metod de hacer esto me lo dices
     public static void limpiarPantalla() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
