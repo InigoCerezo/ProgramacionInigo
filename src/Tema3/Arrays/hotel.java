@@ -10,6 +10,10 @@ public class hotel {
         }
         System.out.println();
     }
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
     public static void main(String[] args){
         //variable inicializacion
         Scanner sc = new Scanner(System.in);
@@ -47,5 +51,6 @@ public class hotel {
             }
         }
         printArray(hotel);
+        clearScreen();
     }
 }
