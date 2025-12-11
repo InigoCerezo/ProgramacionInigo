@@ -10,35 +10,36 @@ public class parejas {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         int pos1, pos2, parejasEncontradas = 0, totalParejas = 10;
-        // 1. PREPARACIÓN DEL TABLERO
-        // Creamos una lista con las parejas (10 parejas = 20 animales)
-        // Usamos una lista primero para poder usar 'Collections.shuffle' fácilmente
+        /* 1. PREPARACIÓN DEL TABLERO
+        Creamos una lista con las parejas (10 parejas = 20 animales)
+        Usamos una lista primero para poder usar 'Collections.shuffle' fácilmente */
         List<String> listaAnimales = new ArrayList<>();
         String[] tipos = {
         "León", "Mono", "Ardilla", "Gorrión", "Hiena", "Perro", "Jirafa", "Cebra", "Gato", "Ratón"
         };
-        // bañadimos cada animal dos veces
+        // añadimos cada animal dos veces
         for (String animal : tipos) {
             listaAnimales.add(animal);
             listaAnimales.add(animal);
         }
-        // barajamos aleatoriamente
+        // baraja
         Collections.shuffle(listaAnimales);
         // Pasamos la lista a un Array fijo de 20 elementos (como pide el ejercicio)
         String[] tablero = listaAnimales.toArray(new String[0]);
-        // 2. ARRAY DE VISIBILIDAD
-        // quiero llorar
+        // 2. ARRAY DE VISIBILIDAD, quiero llorar
         boolean[] visible = new boolean[20];
         // 3. BUCLE DEL JUEGO
         while (parejasEncontradas < totalParejas) {
             // escoge la primera carta
+            System.out.println("--- TABLERO DE MEMORIA ---");
             imprimirTablero(tablero, visible);
+            System.out.print("\n--------------------------");
             pos1 = pedirPosicion(scanner, visible, -1); // -1 porque no hay carta previa
             // mostramos temporalmente la primera carta
             visible[pos1] = true;
             imprimirTablero(tablero, visible);
             // escoge la segunda carta
-            pos2 = pedirPosicion(scanner, visible, pos1); // Pasamos pos1 para que no repita la misma
+            pos2 = pedirPosicion(scanner, visible, pos1); // pasamos pos1 para que no repita la misma
             // mostramos temporalmente la segunda carta
             visible[pos2] = true;
             if (tablero[pos1].equals(tablero[pos2])) {
@@ -47,8 +48,7 @@ public class parejas {
                 parejasEncontradas++;
                 // ya que has encontrado las parejas, estas se quedan en 'true' hasta que se acabe el juego
             } else {
-                System.out.println("INCORRECTO. No son pareja.");
-                System.out.println("Memoriza las cartas... se ocultarán en 3 segundos.");
+                System.out.println("INCORRECTO. No son pareja. Tienes 3 segundos para memorizar.");
                 imprimirTablero(tablero, visible);
                 // si tienes un comando para hacer esto pero mejor me lo dices
                 Thread.sleep(3000);
@@ -65,7 +65,6 @@ public class parejas {
 
     // procedimiento para imprimir el tablero
     public static void imprimirTablero(String[] tablero, boolean[] visible) {
-        System.out.println("--- TABLERO DE MEMORIA ---");
         for (int i = 0; i < tablero.length; i++) {
             // Salto de línea cada 10 elementos para que se vea bien (en mi opinion la cual es FACTO)
             if (i % 10 == 0 && i != 0) {
@@ -77,14 +76,13 @@ public class parejas {
                 System.out.printf("[%6s] ", "Pos " + (i + 1));
             }
         }
-        System.out.println("\n--------------------------");
     }
     // función para pedir posición y validar que sea correcta
     public static int pedirPosicion(Scanner scanner, boolean[] visible, int cartaPrevia) {
         int pos = -1;
         boolean valida = false;
         while (!valida) {
-            System.out.print("Elige una posición (1-20): ");
+            System.out.print("\nElige una posición (1-20): ");
             if (scanner.hasNextInt()) {
                 pos = scanner.nextInt()-1;
                 if (pos >= 0 && pos < 20) {

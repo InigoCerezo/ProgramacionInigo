@@ -20,9 +20,9 @@ public class Mosca {
         //preparando el juego
         Arrays.fill(tablero, 0);
         tablero[mosca] = 1;
-        System.out.println("--------JUEGO: ATRAPA A LA MOSCA--------");
-        System.out.println("----elige un número del 1 al 15 para acertar!----");
-        System.out.println("CUIDADO: si estás muy cerca, la mosca cambiara de posición!");
+        System.out.println("------------------JUEGO: ATRAPA A LA MOSCA------------------");
+        System.out.println("---------¡elige un número del 1 al 15 para acertar!---------");
+        System.out.println("¡CUIDADO: si estás muy cerca, la mosca cambiara de posición!");
         //bucle
         while (!gameOver){
             System.out.println("Introduce una posición (1-15)");
