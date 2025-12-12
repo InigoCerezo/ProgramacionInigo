@@ -8,11 +8,11 @@ import java.util.Arrays;
 
 public class parejas {
     public static void main(String[] args) throws InterruptedException {
+        //valores
         Scanner scanner = new Scanner(System.in);
         int pos1, pos2, parejasEncontradas = 0, totalParejas = 10;
-        /* 1. PREPARACIÓN DEL TABLERO
-        Creamos una lista con las parejas (10 parejas = 20 animales)
-        Usamos una lista primero para poder usar 'Collections.shuffle' fácilmente */
+        /*Creamos una lista con las parejas (10 parejas = 20 animales)
+        Usamos una lista primero para poder usar 'Collections.shuffle' fácilmente (gracias reddit) */
         List<String> listaAnimales = new ArrayList<>();
         String[] tipos = {
         "León", "Mono", "Ardilla", "Gorrión", "Hiena", "Perro", "Jirafa", "Cebra", "Gato", "Ratón"
@@ -24,11 +24,11 @@ public class parejas {
         }
         // baraja
         Collections.shuffle(listaAnimales);
-        // Pasamos la lista a un Array fijo de 20 elementos (como pide el ejercicio)
+        // pasamos la lista a un Array fijo de 20 elementos (como pide el ejercicio)
         String[] tablero = listaAnimales.toArray(new String[0]);
-        // 2. ARRAY DE VISIBILIDAD, quiero llorar
+        // visibilidad
         boolean[] visible = new boolean[20];
-        // 3. BUCLE DEL JUEGO
+        // loop de juego
         while (parejasEncontradas < totalParejas) {
             // escoge la primera carta
             System.out.println("--- TABLERO DE MEMORIA ---");
