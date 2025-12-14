@@ -99,7 +99,7 @@ public class MyArray {
         char choose, eleccion, exit = 'n';
         grades = new int[]{30, 22, 84, 36, 58, 18};
         marks = new int[]{20, 17, 44, 32, 6, 85};
-        while (exit != 'y' || exit != 'Y'){
+        while (exit != 'Y'){
             globalMenuP3();
             choose = sc.next().charAt(0);
             switch (choose){
@@ -226,6 +226,9 @@ public class MyArray {
             }
             System.out.println("¿Quieres salir? (Y/N)"); //linea encargada de salir
             exit=sc.next().charAt(0);// otro caracter hace lo mismo que n, no salir
+            if (exit == 'y'){//por sea caso
+                exit = 'Y';
+            }
         }
     }
 }
