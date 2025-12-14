@@ -96,7 +96,7 @@ public class HangmanGame {
         System.out.println("------------------------------------------------");
     }
 
-    // Método para ocultar la entrada del Jugador 1
+    // ocultando la entrada del Jugador 1
     public static void limpiarPantalla() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
