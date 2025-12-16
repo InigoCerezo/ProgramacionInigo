@@ -10,7 +10,7 @@ public class minesweep1D {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         boolean gameOver = false, ganador = false;
-        int pos, bombaPlantada = 0, espacio = 20, valor = -1, tally = 0;
+        int pos, bombaPlantada = 0, espacio = 20, valor = -1, tally;
         int safeTileTally = 0, totalSafe;
         int minas = rand.nextInt(8) + 1;
         //tablero
