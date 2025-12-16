@@ -27,14 +27,12 @@ public class Lingo {
             if (intento.length() != LONGITUD) {
                 System.out.println("Error: La palabra debe tener exactamente " + LONGITUD + " letras.");
                 i--; // No gastamos el intento
-                continue;
             }
             // 2. Comprobar victoria inmediata
             if (intento.equals(secreto)) {
                 haGanado = true;
                 // Mostramos la palabra "bonita" antes de salir
                 resultado(secreto, intento);
-                break;
             }
             // 3. Procesar y mostrar pistas
             resultado(secreto, intento);
