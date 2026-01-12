@@ -9,24 +9,6 @@ public class Reloj {
         this.m = minsDef;
         this.s = secsDef;
     }
-    public boolean isMilitTime(boolean value) {
-        setMilitTime(value);
-        return this.militTime = value;
-    }
-
-    public void setMilitTime(boolean militTime) {
-        this.militTime = militTime;
-    }
-
-    public void setH(int h) {
-        this.h = h;
-    }
-    public void setM(int m) {
-        this.m = m;
-    }
-    public void setS(int s) {
-        this.s = s;
-    }
     public Reloj(int h, int m, int s){
         if(h<23 && h>=0){
             setH(h);
@@ -37,6 +19,14 @@ public class Reloj {
         if(s<60 && s>=0){
             setS(s);
         }
+    }
+    public boolean isMilitTime(boolean value) {
+        setMilitTime(value);
+        return this.militTime = value;
+    }
+
+    public void setMilitTime(boolean militTime) {
+        this.militTime = militTime;
     }
     public String toString(){
         if (militTime){
@@ -60,4 +50,14 @@ public class Reloj {
     public int getS() {
         return s;
     }
+    public void setH(int h) {
+        this.h = h;
+    }
+    public void setM(int m) {
+        this.m = m;
+    }
+    public void setS(int s) {
+        this.s = s;
+    }
+
 }
