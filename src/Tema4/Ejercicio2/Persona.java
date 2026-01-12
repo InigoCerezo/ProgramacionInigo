@@ -68,8 +68,8 @@ public class Persona {
     }
     public String letraDni(String dni){
         int miDni = Integer.parseInt(dni.substring(0,8));
-        int resto = 0;
-        String letra = "";
+        int resto;
+        String letra;
         String[] asignacion = {"T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"};
         resto = miDni % 23;
         letra = asignacion[resto];
