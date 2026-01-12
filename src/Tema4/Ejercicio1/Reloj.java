@@ -10,8 +10,14 @@ public class Reloj {
         this.s = secsDef;
     }
     public boolean isMilitTime(boolean value) {
+        setMilitTime(value);
         return this.militTime = value;
     }
+
+    public void setMilitTime(boolean militTime) {
+        this.militTime = militTime;
+    }
+
     public void setH(int h) {
         this.h = h;
     }
@@ -22,26 +28,26 @@ public class Reloj {
         this.s = s;
     }
     public Reloj(int h, int m, int s){
-        if(h<23&&h>=0){
+        if(h<23 && h>=0){
             setH(h);
         }
-        if(m<60&&m>=0){
+        if(m<60 && m>=0){
             setM(m);
         }
-        if(s<60&&s>=0){
+        if(s<60 && s>=0){
             setS(s);
         }
     }
     public String toString(){
         if (militTime){
-            return String.format("0%d:0%d:0%d",h, m, s);
+            return String.format("%02d:%02d:%02d",h, m, s);
         }else{
             if (h>13){
                 String pm = "PM";
-                return String.format("%2d:%2d:%2d, %s",(h-12), m, s, pm);
+                return String.format("%02d:%02d:%02d, %s",(h-12), m, s, pm);
             }else{
                 String am = "AM";
-                return String.format("%2d:%2d:%2d, %s",h, m, s, am);
+                return String.format("%02d:%02d:%02d, %s",h, m, s, am);
             }
         }
     }
