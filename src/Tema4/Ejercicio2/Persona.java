@@ -36,13 +36,13 @@ public class Persona {
     }
     public void ageDiff(Persona uno, Persona dos){
         if (uno.edad > dos.edad){
-            System.out.printf("\n%s es mas mayor que %s.",uno.getNombre(),dos.getNombre());
+            System.out.printf("%s es mas mayor que %s.\n",uno.getNombre(),dos.getNombre());
 
         }else if(uno.edad < dos.edad){
-            System.out.printf("\n%s es mas mayor que %s.",dos.getNombre(),uno.getNombre());
+            System.out.printf("%s es mas mayor que %s.\n",dos.getNombre(),uno.getNombre());
 
         }else{
-            System.out.printf("\n%s y %s tienen la misma edad.",uno.getNombre(),dos.getNombre());
+            System.out.printf("%s y %s tienen la misma edad.\n",uno.getNombre(),dos.getNombre());
 
         }
     }
