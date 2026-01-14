@@ -4,7 +4,7 @@ public class Persona {
     public static final int adultAge = 18;
     public static final int retiredAge = 65;
     public String nombre, apellidos;
-    private String dni;
+    private final String dni;
     private int edad;
     public Persona (String nombre, String apellidos, String dni, int edad){
         if(edad<=0 || edad > 100){
@@ -15,9 +15,9 @@ public class Persona {
         setNombre(nombre);
         setApellidos(apellidos);
         if (validDni(dni)) {
-            setDni(dni);
+            this.dni = dni;
         }else{
-            setDni("99999999A (dni invalido)");
+            this.dni = (dni + " (DNI invalido)");
         }
     }
     public String print(){
@@ -96,8 +96,5 @@ public class Persona {
     }
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 }
