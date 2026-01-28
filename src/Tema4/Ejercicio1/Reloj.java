@@ -10,7 +10,7 @@ public class Reloj {
         this.s = secsDef;
     }
     public Reloj(int h, int m, int s){
-        if(h<23 && h>=0){
+        if(h<24 && h>=0){
             setH(h);
         }
         if(m<60 && m>=0){
@@ -28,14 +28,17 @@ public class Reloj {
     public void setMilitTime(boolean militTime) {
         this.militTime = militTime;
     }
-    public String toString(){
+    public String toStringu(){
         if (militTime){
             return String.format("%02d:%02d:%02d",h, m, s);
         }else{
-            if (h>13){
+            if (h>12){
                 String pm = "PM";
                 return String.format("%02d:%02d:%02d, %s",(h-12), m, s, pm);
-            }else{
+            } else if (h == 12) {
+                String pm = "PM";
+                return String.format("%02d:%02d:%02d, %s",h, m, s, pm);
+            } else{
                 String am = "AM";
                 return String.format("%02d:%02d:%02d, %s",h, m, s, am);
             }

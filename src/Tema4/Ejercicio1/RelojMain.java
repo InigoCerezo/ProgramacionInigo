@@ -2,17 +2,21 @@ package Tema4.Ejercicio1;
 
 public class RelojMain {
     public static void main(String[] args){
-        Reloj reloj = new Reloj(3,54,45);
+        Reloj reloj = new Reloj(23,54,45);
         Reloj reloj1 =  new Reloj();
-        reloj.getS();
-        reloj.getM();
-        reloj.getH();
+        System.out.println(reloj.getS());
+        System.out.println(reloj.getM());
+        System.out.println(reloj.getH());
         System.out.println(reloj);
-        reloj1.getS();
-        reloj1.getM();
-        reloj1.getH();
+        System.out.println(reloj.toStringu());
+        reloj.setMilitTime(false);
+        System.out.println(reloj.toStringu());
+        System.out.println(reloj1.getS());
+        System.out.println(reloj1.getM());
+        System.out.println(reloj1.getH());
         System.out.println(reloj1);
-        reloj.toString();
-        reloj1.toString();
+        System.out.println(reloj1.toStringu());
+        reloj1.setMilitTime(false);
+        System.out.println(reloj1.toStringu());
     }
 }

@@ -65,6 +65,7 @@ public class Hero {
     }
     public void peril(Hero one){
         one.hp = 1;
+        System.out.println("ay");
     }
     public void squabble(Hero one, Hero two) {
         Random r = new Random();
@@ -77,13 +78,12 @@ public class Hero {
         one.exp = one.getExp() + (r.nextInt(50) + 10);
     }
     public void fite(Hero one, Hero two) throws InterruptedException {
-        Random r = new Random();
         String hpleft1 = "-", hplost1 = "X";
         System.out.println("¡"+one.getName() + " ataca!");
         sleep(100);
-        two.hp = two.getHp() - Math.max((one.getAtt() - two.getDef()), 5);
+        two.hp = two.getHp() - Math.max((one.getAtt() - two.getDef()), 1);
         System.out.println("Hizo " + Math.max(one.getAtt()- two.getDef(), 1)+" de daño.");
-        System.out.println("PV de "+two.getName()+": " + two.getHp() + "/" + two.getMaxHp() + " " + hpleft1.repeat(two.getHp()/2)+hplost1.repeat((two.getMaxHp()-two.getHp())/2));
+        System.out.println("PV de "+ two.getName()+": " + two.getHp() + "/" + two.getMaxHp() + " " + hpleft1.repeat(two.getHp()/2)+hplost1.repeat((two.getMaxHp()-two.getHp())/2));
         sleep(250);
     }
     public void levelUp (int attack, int defense, int maxHp, int level, int exp, int maxExp){

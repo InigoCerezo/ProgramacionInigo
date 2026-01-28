@@ -47,7 +47,7 @@ public class Ej4Main {
             retreat1 = rand.nextInt(9);
             retreat2 = rand.nextInt(9);
             retreat3 = rand.nextInt(9);
-            if(!retire1&&retreat1 == 0){
+            if(!retire1&&retreat1 == 3){
                 System.out.println(villain1.getName() + " decide retirarse.");
                 retire1 = true;
                 enemycounter--;
