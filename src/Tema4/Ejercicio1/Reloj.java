@@ -20,10 +20,6 @@ public class Reloj {
             setS(s);
         }
     }
-    public boolean isMilitTime(boolean value) {
-        setMilitTime(value);
-        return this.militTime = value;
-    }
 
     public void setMilitTime(boolean militTime) {
         this.militTime = militTime;
