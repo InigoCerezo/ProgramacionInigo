@@ -122,7 +122,7 @@ public class Ej4Main {
                                     if (retire1) {
                                         System.out.println("...pero ya se había retirado.");
                                     } else {
-                                        hero.squabble(hero, villain1);
+                                        hero.squabble( villain1);
                                         if (villain1.getHp() <= 0) {
                                             System.out.println(villain1.getName() + " se retira!");
                                             retire1 = true;
@@ -136,7 +136,7 @@ public class Ej4Main {
                                     if (retire2) {
                                         System.out.println("...pero ya se había retirado.");
                                     } else {
-                                        hero.squabble(hero, villain2);
+                                        hero.squabble(villain2);
                                         if (villain2.getHp() <= 0) {
                                             System.out.println(villain2.getName() + " se retira!");
                                             retire2 = true;
@@ -150,7 +150,7 @@ public class Ej4Main {
                                     if (retire3) {
                                         System.out.println("...pero ya se había retirado.");
                                     } else {
-                                        hero.squabble(hero, villain3);
+                                        hero.squabble(villain3);
                                         if (villain3.getHp() <= 0) {
                                             System.out.println(villain3.getName() + " se retira!");
                                             retire3 = true;
@@ -166,7 +166,7 @@ public class Ej4Main {
                             }
                             break;
                         case 'B':
-                            hero.status();
+                            System.out.println(hero);
                             sleep(1000);
                             break;
                         default:
@@ -175,7 +175,7 @@ public class Ej4Main {
                     }
                 }
                 if (hero.getExp() >= hero.getMaxExp()) {
-                    hero.levelUp(hero.getAtt(),hero.getDef(),hero.getMaxHp(),hero.getLevel(),hero.getExp(),hero.getMaxExp());
+                    hero.levelUp();
                 }
                 sleep(750);
                 if(retire1&&retire2&&retire3) {
@@ -185,13 +185,13 @@ public class Ej4Main {
                     System.out.println("Turno de los enemigos.");
                     //if statement en todos para que los retirados no ataquen
                     if(!retire1){
-                        villain1.fite(villain1, hero);
+                        villain1.fite(hero);
                     }
                     if(!retire2){
-                        villain2.fite(villain2, hero);
+                        villain2.fite(hero);
                     }
                     if(!retire3){
-                        villain3.fite(villain3, hero);
+                        villain3.fite(hero);
                     }
                     if (hero.getHp() <= 0) { //has muerto
                         System.out.println(hero.getName() + " ha caido en combate!");

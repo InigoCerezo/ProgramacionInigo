@@ -20,6 +20,6 @@ public class Main {
         }else {
             System.out.println(persona.getNombre() + " esta jubilado/a.");
         }
-        persona.ageDiff(persona, persono);
+        persona.ageDiff(persono);
     }
 }

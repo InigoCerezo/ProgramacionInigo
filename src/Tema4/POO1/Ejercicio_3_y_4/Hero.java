@@ -5,13 +5,21 @@ import java.util.Random;
 import static java.lang.Thread.sleep;
 
 public class Hero {
-    public static final int finMaxHp = 390;
-    public static final int finLevel = 30;
-    public static final int finAtt = 144;
-    public static final int finDef = 144;
+    public static final int FIN_MAX_HP = 390;
+    public static final int FIN_LEVEL = 30;
+    public static final int FIN_ATT = 144;
+    public static final int FIN_DEF = 144;
     private final int baseHp = 110, baseAtt = 5, baseDef = 5, baseXp = 1, baseLvl = 1, baseMaxExp = 50;
     public String name;
     private int hp, attack, defense, exp, level, maxHp, maxExp;
+
+    public Hero(){
+        this.hp=baseHp;
+        this.maxHp=baseHp;
+        this.defense=baseDef;
+        this.attack=baseAtt;
+        this.level=baseLvl;
+    }
 
     public Hero(String name, int hp, int att, int def, int lvl) {
         setName(name);
@@ -32,14 +40,15 @@ public class Hero {
         this.level = baseLvl;
     }
 
-    public void status(){ //porque llamarlo "toString" suena CUTRE
-        System.out.println("Estado de "+ getName()+":");
-        System.out.println("---------------------------------------------");
-        System.out.println("Vida: " + getHp()+"/"+getMaxHp());
-        System.out.println("Nivel: " + getLevel());
-        System.out.println("P. Exp: " + getExp()+"/"+getMaxExp());
-        System.out.println("Ataque: " + getAtt());
-        System.out.println("Defensa: " + getDef());
+    public String toString(){ //porque llamarlo "toString" suena CUTRE
+        return String.format("Estado de %s: \n " +
+                        "--------------------------------\n" +
+                        "Vida: %d/%d\n" +
+                        "Nivel: %d\n" +
+                        "P. Exp: %d/%d\n" +
+                        "Ataque: %d\n" +
+                        "Defensa: %d\n",
+                name, hp, maxHp, level, exp, maxExp, attack, defense);
     }
     public void drinkWater(int hp){
         System.out.println("De los enemigos, encontraste una botella de agua pura.");
@@ -55,7 +64,7 @@ public class Hero {
     public void rest(int hp){
         System.out.println("No hay más enemigos visibles al horizonte.");
         System.out.println("Te tomaste un descanso.");
-        if (hp >= maxHp){
+        if (hp + 50 >= maxHp){
             setHp(maxHp);
             System.out.println("Recuperaste toda tu vida. ("+getHp()+"/"+getMaxHp()+")");
         }else{
@@ -67,53 +76,57 @@ public class Hero {
         one.hp = 1;
         System.out.println("ay");
     }
-    public void squabble(Hero one, Hero two) {
+    public void squabble(Hero two) {
         Random r = new Random();
         String hpleft1 = "-", hplost1 = "X";
-        two.hp = two.getHp() - Math.max((one.getAtt() - two.getDef()), 1);
-        System.out.println("Hiciste " + Math.max(one.getAtt()- two.getDef(), 1)+" de daño.");
+        two.hp = two.getHp() - Math.max((this.attack - two.getDef()), 1);
+        System.out.println("Hiciste " + Math.max(this.attack- two.getDef(), 1)+" de daño.");
         if (two.getHp() > 0) {
             System.out.println("PV de "+two.getName()+": " + two.getHp() + "/" + two.getMaxHp() + " " + hpleft1.repeat(two.getHp()/2)+hplost1.repeat((two.getMaxHp()-two.getHp())/2));
         }
-        one.exp = one.getExp() + (r.nextInt(50) + 10);
+        if (this.level < 30) {
+            this.exp = this.exp + (r.nextInt(50) + 10);
+        }
     }
-    public void fite(Hero one, Hero two) throws InterruptedException {
+    public void fite(Hero two) throws InterruptedException {
         String hpleft1 = "-", hplost1 = "X";
-        System.out.println("¡"+one.getName() + " ataca!");
+        System.out.println("¡"+this.name + " ataca!");
         sleep(100);
-        two.hp = two.getHp() - Math.max((one.getAtt() - two.getDef()), 1);
-        System.out.println("Hizo " + Math.max(one.getAtt()- two.getDef(), 1)+" de daño.");
+        two.hp = two.getHp() - Math.max((this.attack - two.getDef()), 3);
+        System.out.println("Hizo " + Math.max(this.attack- two.getDef(), 3)+" de daño.");
         System.out.println("PV de "+ two.getName()+": " + two.getHp() + "/" + two.getMaxHp() + " " + hpleft1.repeat(two.getHp()/2)+hplost1.repeat((two.getMaxHp()-two.getHp())/2));
         sleep(250);
     }
-    public void levelUp (int attack, int defense, int maxHp, int level, int exp, int maxExp){
+    public void levelUp (){
+        int attack = this.attack;
+        int defense = this.defense;
+        int maxHp = this.maxHp;
+        int level = this.level;
+
         System.out.println("FELICIDADES! HAS SUBIDO DE NIVEL!");
-        if(attack+3 >= finAtt){
-            attack = finAtt;
+        if(this.attack+3 >= FIN_ATT){
+            this.attack = FIN_ATT;
             System.out.println("Ya estás muy fuerte.");
-            this.attack = attack;
         }else{
             System.out.println("Tu ataque ha subido de " + attack + " a " + (attack+3)+".");
-            this.attack = attack + 3;
+            this.attack = this.attack + 3;
         }
-        if (defense+3 >= finDef){
-            defense = finDef;
+        if (this.defense+3 >= FIN_DEF){
+            this.defense = FIN_DEF;
             System.out.println("Ya eres muy resistente.");
-            this.defense = defense;
         }else {
-            this.defense = defense + 3;
+            this.defense = this.defense + 3;
             System.out.println("Tu defensa ha subido de " + defense + " a " + (defense+3)+".");
         }
-        if (maxHp+10 >= finMaxHp){
-            maxHp = finMaxHp;
+        if (this.maxHp+10 >= FIN_MAX_HP){
+            this.maxHp = FIN_MAX_HP;
             System.out.println("Ya tienes demasiada vida.");
-            this.maxHp = maxHp;
         }else{
             System.out.println("Tu vida máxima ha subido de " + maxHp + " a " + (maxHp+10)+".");
-            this.maxHp = maxHp + 10;
+            this.maxHp = this.maxHp + 10;
         }
-        if (level+1 >= finLevel){
-            level = finLevel;
+        if (this.level+1 >= FIN_LEVEL){
+            this.level = FIN_LEVEL;
             System.out.println("Estas en el máximo nivel.");
             this.level = level;
         }else{
@@ -122,8 +135,14 @@ public class Hero {
         }
         System.out.println("Tu vida ha sido completamente recuperada.");
         setHp(getMaxHp());
-        this.exp = Math.abs(exp - maxExp);
-        this.maxExp = baseMaxExp * getLevel();
+        this.exp = Math.abs(this.exp - this.maxExp);
+        if(this.level == FIN_LEVEL){
+            this.exp = 0;
+            this.maxExp = 1;
+        }else{
+            this.maxExp = baseMaxExp * this.level;
+        }
+
     }
     public int getMaxExp() {
         return maxExp;

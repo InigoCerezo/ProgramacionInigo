@@ -1,12 +1,14 @@
 package Tema4.POO1.Ejercicio2;
 
 public class Persona {
-    public static final int adultAge = 18;
-    public static final int retiredAge = 65;
+    public static final int ADULT_AGE = 18;
+    public static final int RETIRED_AGE = 65;
     public String nombre, apellidos;
     private final String dni;
     private int edad;
+
     public Persona (String nombre, String apellidos, String dni, int edad){
+        //meter el if en el setter de edad
         if(edad<=0 || edad > 100){
             this.edad = 0;
         }else{
@@ -29,20 +31,21 @@ public class Persona {
     }
 
     public boolean isAdult(){
-        return edad >= adultAge;
+        return edad >= ADULT_AGE;
     }
     public boolean isRetired(){
-        return edad >= retiredAge;
+        return edad >= RETIRED_AGE;
     }
-    public void ageDiff(Persona uno, Persona dos){
-        if (uno.edad > dos.edad){
-            System.out.printf("%s es mas mayor que %s.\n",uno.getNombre(),dos.getNombre());
 
-        }else if(uno.edad < dos.edad){
-            System.out.printf("%s es mas mayor que %s.\n",dos.getNombre(),uno.getNombre());
+    public void ageDiff(Persona uno){
+        if (uno.edad < this.edad){
+            System.out.printf("%s es mas mayor que %s.\n",this.nombre,uno.getNombre());
+
+        }else if(uno.edad > this.edad){
+            System.out.printf("%s es mas mayor que %s.\n",uno.getNombre(),this.nombre);
 
         }else{
-            System.out.printf("%s y %s tienen la misma edad.\n",uno.getNombre(),dos.getNombre());
+            System.out.printf("%s y %s tienen la misma edad.\n",this.nombre,uno.getNombre());
 
         }
     }

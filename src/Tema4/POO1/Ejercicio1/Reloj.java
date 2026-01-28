@@ -1,30 +1,27 @@
 package Tema4.POO1.Ejercicio1;
 
 public class Reloj {
-    public static final int hoursDef = 0, minsDef = 0, secsDef = 0;
+    public static final int HOURS_DEF = 0, MINS_DEF = 0, SECS_DEF = 0;
     private boolean militTime = true;
     private int h, m, s;
+
     public Reloj(){
-        this.h = hoursDef;
-        this.m = minsDef;
-        this.s = secsDef;
+        this.h = HOURS_DEF;
+        this.m = MINS_DEF;
+        this.s = SECS_DEF;
     }
+
     public Reloj(int h, int m, int s){
-        if(h<24 && h>=0){
-            setH(h);
-        }
-        if(m<60 && m>=0){
-            setM(m);
-        }
-        if(s<60 && s>=0){
-            setS(s);
-        }
+        setH(h);
+        setM(m);
+        setS(s);
+        //IFS EN LOS SETTERS
     }
 
     public void setMilitTime(boolean militTime) {
         this.militTime = militTime;
     }
-    public String toStringu(){
+    public String toString(){
         if (militTime){
             return String.format("%02d:%02d:%02d",h, m, s);
         }else{
@@ -50,13 +47,19 @@ public class Reloj {
         return s;
     }
     public void setH(int h) {
-        this.h = h;
+        if(h<24 && h>=0) {
+            this.h = h;
+        }
     }
     public void setM(int m) {
-        this.m = m;
+        if(m<60 && m>=0){
+            this.m = m;
+        }
     }
     public void setS(int s) {
-        this.s = s;
+        if(s<60 && s>=0){
+            this.s = s;
+        }
     }
 
 }
