@@ -1,4 +1,4 @@
-package Tema4.Ejercicio1;
+package Tema4.POO1.Ejercicio1;
 
 public class Reloj {
     public static final int hoursDef = 0, minsDef = 0, secsDef = 0;

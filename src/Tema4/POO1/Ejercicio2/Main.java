@@ -1,4 +1,4 @@
-package Tema4.Ejercicio2;
+package Tema4.POO1.Ejercicio2;
 
 public class Main {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package Tema4.Ejercicio_3_y_4;
+package Tema4.POO1.Ejercicio_3_y_4;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -18,11 +18,13 @@ public class Ej4Main {
         Hero hero = new Hero(nombre);
         while(!check){
             sleep(1000);
+            //se crean los enemigos
             Hero villain1 = new Hero("Villano",(hero.getHp()- rand.nextInt(55)),(hero.getAtt()/2),(hero.getDef()/2),hero.getLevel());
             Hero villain2 = new Hero("Secuaz",(hero.getHp() - (rand.nextInt(35)+10)),(hero.getAtt()/2),(hero.getDef()/2),hero.getLevel());
             Hero villain3 = new Hero("Acólito",(hero.getHp() - (rand.nextInt(20)+40)),(hero.getAtt()/2),(hero.getDef()/2),hero.getLevel());
             fight = true;
             oleada++;
+            //este random decide cuantos enemigos aparecen
             enemycounter = (rand.nextInt(3)+1);
             switch (enemycounter){
                 case 3:
@@ -47,7 +49,7 @@ public class Ej4Main {
             retreat1 = rand.nextInt(9);
             retreat2 = rand.nextInt(9);
             retreat3 = rand.nextInt(9);
-            if(!retire1&&retreat1 == 3){
+            if(retreat1 == 3){
                 System.out.println(villain1.getName() + " decide retirarse.");
                 retire1 = true;
                 enemycounter--;
@@ -159,7 +161,7 @@ public class Ej4Main {
                                 case 'D':
                                     hero.peril(hero);
                                 default:
-                                    System.out.println("Turno saltado.\n");
+                                    System.out.println("Turno saltado.");
                                     break;
                             }
                             break;
@@ -181,6 +183,7 @@ public class Ej4Main {
                     fight = false;
                 }else {
                     System.out.println("Turno de los enemigos.");
+                    //if statement en todos para que los retirados no ataquen
                     if(!retire1){
                         villain1.fite(villain1, hero);
                     }
@@ -190,7 +193,7 @@ public class Ej4Main {
                     if(!retire3){
                         villain3.fite(villain3, hero);
                     }
-                    if (hero.getHp() <= 0) {
+                    if (hero.getHp() <= 0) { //has muerto
                         System.out.println(hero.getName() + " ha caido en combate!");
                         fight = false;
                         check = true;
@@ -199,13 +202,13 @@ public class Ej4Main {
                 }
             }
             System.out.println("Turnos del último combate: "+ turncount);
-            turncount = 0;
-            drink = rand.nextInt(9);
-            rest = rand.nextInt(99);
-            if (drink == 5){
+            turncount = 0; //reseteamos el conteo de turnos
+            drink = rand.nextInt(9); //prob de beber agua
+            rest = rand.nextInt(99); //prob de descansar
+            if (!check&&drink == 5){
                 hero.drinkWater(hero.getHp());
             }
-            if (rest == 50){
+            if (!check&&rest == 50){
                 hero.rest(hero.getHp());
             }
         }

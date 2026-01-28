@@ -1,4 +1,4 @@
-package Tema4.Ejercicio_3_y_4;
+package Tema4.POO1.Ejercicio_3_y_4;
 
 public class Ej3Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Tema4.Ejercicio1;
+package Tema4.POO1.Ejercicio1;
 
 public class RelojMain {
     public static void main(String[] args){
