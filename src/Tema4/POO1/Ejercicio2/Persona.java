@@ -9,11 +9,7 @@ public class Persona {
 
     public Persona (String nombre, String apellidos, String dni, int edad){
         //meter el if en el setter de edad
-        if(edad<=0 || edad > 100){
-            this.edad = 0;
-        }else{
-            setEdad(edad);
-        }
+        setEdad(edad);
         setNombre(nombre);
         setApellidos(apellidos);
         if (validDni(dni)) {
@@ -98,6 +94,10 @@ public class Persona {
         this.apellidos = apellidos;
     }
     public void setEdad(int edad) {
-        this.edad = edad;
+        if(edad < 0 || edad > 100){
+            this.edad = 0;
+        }else{
+            this.edad = edad;
+        }
     }
 }
