@@ -16,7 +16,9 @@ public class Persona{
         this.dni = dni;
         this.cuenta = new Cuenta[3];
     }
-
+    public String toString(){
+        return String.format(this.getNombre()+", con DNI "+this.getDni()+" con "+this.getCuenta()+" .");
+    }
     public String getNombre() {
         return nombre;
     }

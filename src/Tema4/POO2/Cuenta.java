@@ -5,25 +5,25 @@ import java.util.Random;
 
 public class Cuenta {
 
-    private int numeroCuenta;
+    private int numCuenta;
     private float saldo;
 
     public Cuenta() {
         Random rand = new Random();
         this.saldo = 0;
-        this.numeroCuenta = rand.nextInt(1000000);
+        this.numCuenta = rand.nextInt(1000000);
     }
 
     public Cuenta(int numeroCuenta) {
-        this.numeroCuenta = numeroCuenta;
+        this.numCuenta = numeroCuenta;
         this.saldo = 0;
     }
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
-        return numeroCuenta + " - " + df.format(saldo);
+        return numCuenta + " - " + df.format(saldo);
     }
-    public int getNumeroCuenta() {
-        return numeroCuenta;
+    public int getNumCuenta() {
+        return numCuenta;
     }
     public String getSaldo() {
         DecimalFormat df = new DecimalFormat("0.00");
