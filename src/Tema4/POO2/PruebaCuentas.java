@@ -3,113 +3,181 @@ package Tema4.POO2;
 import java.util.Scanner;
 
 public class PruebaCuentas {
-    public static void menu(){
-        //bread
-        System.out.println("Menu principal");
-        System.out.println("-------------------------------------");
-        System.out.println("a. Crear nueva persona");
-        System.out.println("b. Crear Cuenta y asociarla a una persona");
-        System.out.println("c. Mostrar datos de una persona");
 
-    }
+    static final int MAX_PERSONAS = 50;
+    static Persona[] listaPersonas = new Persona[MAX_PERSONAS];
+    static int contadorPersonas = 0;
+
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Persona[] persona = new Persona[3];
-        Cuenta[] cuenta = new Cuenta[9];
-        String nombre, dni;
-        int numc, cont;
-        boolean loop = true, check, check2;
-        Scanner sc = new Scanner(System.in);
-        while(loop){
-            menu();
-            char doodad;
-            doodad = sc.next().charAt(0);
-            doodad = Character.toUpperCase(doodad);
-            switch(doodad){
-                case 'A':
-                    cont = 0;
-                    check = true;
-                    check2 = false;
-                    while(!check2){
-                        for(int i = 0; i < persona.length; i++){
-                            if(persona[i] == null && check){
-                                System.out.println("Ingrese el nombre de la persona");
-                                nombre = sc.next();
-                                System.out.println("Ingrese el dni de la persona");
-                                dni = sc.next();
-                                for (Persona value : persona) {
-                                    while (value != null && value.getDni().equals(dni)) {
-                                        System.out.println("DNI invalido, introduzca otro");
-                                        dni = sc.next();
-                                    }
-                                }
-                                persona[i] = new Persona(nombre, dni);
-                                check = false;
-                                check2 = true;
-                            }else{
-                                cont++;
-                            }
-                        }
-                        if (cont == 3){
-                            System.out.println("Has alcanzado el límite de personas.");
-                        }
-                    }
+        int opcion;
+
+        do {
+            System.out.println("\n--- GESTIÓN BANCARIA ---");
+            System.out.println("1. Instanciar Persona");
+            System.out.println("2. Instanciar Cuenta a una Persona");
+            System.out.println("3. Mostrar datos de una persona");
+            System.out.println("4. Recibir nómina");
+            System.out.println("5. Realizar pago");
+            System.out.println("6. Transferencia");
+            System.out.println("7. Imprimir morosos");
+            System.out.println("0. Salir");
+            System.out.print("Elija una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine(); // Limpiar buffer
+
+            switch (opcion) {
+                case 1:
+                    crearPersona();
                     break;
-                case 'B':
-                    cont = 0;
-                    check = false;
-                    check2 = false;
-                    while(!check2){
-                        System.out.println("¿A quien le va a pertenecer la cuenta (introduce DNI)?");
-                        dni = sc.next();
-                        for (Persona value : persona) {
-                            if (value == null) {
-                                cont++;
-                                if (cont == 3){
-                                    System.out.println("No hay personas registradas.");
-                                    check2 = true;
-                                }
-                            } else if (value.getDni().equals(dni)) {
-                                for (int j = 0; j < cuenta.length; j++) {
-                                    if (cuenta[j] == null && !check) {
-                                        System.out.println("Introduce un número de cuenta");
-                                        numc = sc.nextInt();
-                                        cuenta[j] = new Cuenta(numc);
-                                        value.setCuenta(j, cuenta);
-                                        check = true;
-                                        check2 = true;
-                                    }else{
-                                        System.out.println("Ya hay demasiadas cuentas en este ejercicio.");
-                                    }
-                                }
-                            }
-                        }
-                    }
+                case 2:
+                    crearCuenta();
                     break;
-                case 'C':
-                    check = false;
-                    System.out.println("¿A quien quieres ver (introduce DNI)?");
-                    dni = sc.next();
-                    while(!check){
-                        for (Persona value : persona) {
-                            if (value.getDni().equals(dni)) {
-                                System.out.println(value.toString());
-                            }else{
-                                System.out.print("");
-                            }
-                        }
-                    }
+                case 3:
+                    mostrarPersona();
                     break;
-                case 'D':
+                case 4:
+                    realizarAbono();
                     break;
-                case 'E':
+                case 5:
+                    realizarPago();
                     break;
-                case 'F':
+                case 6:
+                    realizarTransferencia();
                     break;
-                case 'G':
+                case 7:
+                    mostrarMorosos();
+                    break;
+                case 0:
+                    System.out.println("Saliendo...");
                     break;
                 default:
-                    loop = false;
+                    System.out.println("Opción no válida.");
+            }
+        } while (opcion != 0);
+    }
+    //formula 1
+    public static void crearPersona() {
+        if (contadorPersonas >= MAX_PERSONAS) {
+            System.out.println("Error: Base de datos llena. No caben más personas.");
+            return;
+        }
+
+        System.out.print("Introduce el DNI: ");
+        String dni = sc.nextLine();
+
+        if (buscarPersona(dni) == null) {
+            // Guardamos en la posición actual y luego aumentamos el contador
+            listaPersonas[contadorPersonas] = new Persona(dni);
+            contadorPersonas++;
+            System.out.println("Persona creada correctamente. Total personas: " + contadorPersonas);
+        } else {
+            System.out.println("Error: Ya existe una persona con ese DNI.");
+        }
+    }
+
+    //formula 2
+    public static void crearCuenta() {
+        Persona p = solicitarPersona();
+        if (p != null) {
+            System.out.print("Número de nueva cuenta: ");
+            String num = sc.nextLine();
+            System.out.print("Saldo inicial: ");
+            double saldo = sc.nextDouble();
+            p.anadirCuenta(new Cuenta(num, saldo));
+        }
+    }
+
+    //formula 3
+    public static void mostrarPersona() {
+        Persona p = solicitarPersona();
+        if (p != null) p.mostrarDatos();
+    }
+
+    //formula 4
+    public static void realizarAbono() {
+        Persona p = solicitarPersona();
+        if (p != null) {
+            System.out.print("Cuenta destino: ");
+            String num = sc.nextLine();
+            Cuenta c = p.getCuentaByNum(num);
+            if (c != null) {
+                System.out.print("Cantidad nómina: ");
+                c.recibirAbonos(sc.nextDouble());
+            } else {
+                System.out.println("Cuenta no encontrada.");
             }
         }
+    }
+
+    //formula 5
+    public static void realizarPago() {
+        Persona p = solicitarPersona();
+        if (p != null) {
+            System.out.print("Cuenta origen pago: ");
+            String num = sc.nextLine();
+            Cuenta c = p.getCuentaByNum(num);
+            if (c != null) {
+                System.out.print("Cantidad a pagar: ");
+                c.pagarRecibos(sc.nextDouble());
+            } else {
+                System.out.println("Cuenta no encontrada.");
+            }
+        }
+    }
+
+    //formula 6
+    public static void realizarTransferencia() {
+        System.out.println("> DATOS ORIGEN:");
+        Persona pOrigen = solicitarPersona();
+        if (pOrigen == null) return;
+        System.out.print("Cuenta origen: ");
+        Cuenta cOrigen = pOrigen.getCuentaByNum(sc.nextLine());
+        if (cOrigen == null) { System.out.println("Cuenta no existe."); return; }
+
+        System.out.println("> DATOS DESTINO:");
+        Persona pDestino = solicitarPersona();
+        if (pDestino == null) return;
+        System.out.print("Cuenta destino: ");
+        Cuenta cDestino = pDestino.getCuentaByNum(sc.nextLine());
+        if (cDestino == null) { System.out.println("Cuenta no existe."); return; }
+
+        System.out.print("Cantidad a transferir: ");
+        double cant = sc.nextDouble();
+
+        cOrigen.pagarRecibos(cant);
+        cDestino.recibirAbonos(cant);
+        System.out.println("Transferencia realizada.");
+    }
+    //formula 7
+    public static void mostrarMorosos() {
+        System.out.println("--- MOROSOS ---");
+        boolean hay = false;
+        for (int i = 0; i < contadorPersonas; i++) {
+            if (listaPersonas[i].esMorosa()) {
+                System.out.println("-> DNI Moroso: " + listaPersonas[i].getDni());
+                listaPersonas[i].mostrarDatos();
+                hay = true;
+            }
+        }
+        if (!hay) System.out.println("No hay morosos.");
+    }
+
+    //para no tener que escribir el código de abajo en cada formula
+    public static Persona buscarPersona(String dni) {
+        for (int i = 0; i < contadorPersonas; i++) {
+            if (listaPersonas[i].getDni().equalsIgnoreCase(dni)) {
+                return listaPersonas[i];
+            }
+        }
+        return null;
+    }
+    public static Persona solicitarPersona() {
+        System.out.print("Introduce DNI del titular: ");
+        String dni = sc.nextLine();
+        Persona p = buscarPersona(dni);
+        if (p == null) System.out.println("Cliente no encontrado.");
+        return p;
     }
 }

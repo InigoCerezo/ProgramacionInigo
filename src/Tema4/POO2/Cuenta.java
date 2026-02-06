@@ -1,38 +1,26 @@
 package Tema4.POO2;
 
-import java.text.DecimalFormat;
-import java.util.Random;
-
 public class Cuenta {
+    private final String numeroCuenta;
+    private double saldo;
 
-    private int numCuenta;
-    private float saldo;
-
-    public Cuenta() {
-        Random rand = new Random();
-        this.saldo = 0;
-        this.numCuenta = rand.nextInt(1000000);
+    public Cuenta(String numeroCuenta, double saldoInicial) {
+        this.numeroCuenta = numeroCuenta;
+        this.saldo = saldoInicial;
     }
 
-    public Cuenta(int numeroCuenta) {
-        this.numCuenta = numeroCuenta;
-        this.saldo = 0;
+    public double getSaldo() { return saldo; }
+    public String getNumeroCuenta() { return numeroCuenta; }
+
+    public void recibirAbonos(double cantidad) {
+        this.saldo += cantidad;
     }
+
+    public void pagarRecibos(double cantidad) {
+        this.saldo -= cantidad;
+    }
+
     public String toString() {
-        DecimalFormat df = new DecimalFormat("0.00");
-        return numCuenta + " - " + df.format(saldo);
-    }
-    public int getNumCuenta() {
-        return numCuenta;
-    }
-    public String getSaldo() {
-        DecimalFormat df = new DecimalFormat("0.00");
-        return df.format(saldo);
-    }
-    public void abonos(int abono){
-        this.saldo =  this.saldo + abono;
-    }
-    public void recibos(int recibo){
-        this.saldo =  this.saldo - recibo;
+        return "  -> [Cuenta: " + numeroCuenta + " | Saldo: " + saldo + "]";
     }
 }
