@@ -4,7 +4,7 @@ import java.util.Scanner;
 //no se lo que pasa, tiene errores pero el código corre y funciona como le digo, no se que es esto, tengo miedo
 public class PruebaCuentas {
 
-    static final int MAX_PERSONAS = 50;
+    static final int MAX_PERSONAS = 5;
     static Persona[] listaPersonas = new Persona[MAX_PERSONAS];
     static int contadorPersonas = 0;
 
@@ -25,7 +25,7 @@ public class PruebaCuentas {
             System.out.println("0. Salir");
             System.out.print("Elija una opción: ");
             opcion = sc.nextInt();
-            sc.nextLine(); // Limpiar buffer
+            sc.nextLine(); //limpiar buffer
 
             switch (opcion) {
                 case 1:
@@ -68,7 +68,6 @@ public class PruebaCuentas {
         String dni = sc.nextLine();
 
         if (buscarPersona(dni) == null) {
-            // Guardamos en la posición actual y luego aumentamos el contador
             listaPersonas[contadorPersonas] = new Persona(dni);
             contadorPersonas++;
             System.out.println("Persona creada correctamente. Total personas: " + contadorPersonas);
