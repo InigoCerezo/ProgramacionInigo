@@ -1,4 +1,4 @@
-package Tema5;
+package Tema5.coleccion;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -25,7 +25,7 @@ public class Ejercicio1 {
             switch(chos){
                 case 'a':
                     System.out.println("¿Que quieres añadir a tu carro?");
-                    ojbeto = sc.nextLine();
+                    sc.nextLine();
                     ojbeto = sc.nextLine();
                     if(lista.contains(ojbeto)){
                         System.out.println("Ya existe un objeto con el mismo nombre.");

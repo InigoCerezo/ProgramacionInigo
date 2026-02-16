@@ -1,4 +1,4 @@
-package Tema5.ejercicio2;
+package Tema5.coleccion.ejercicio2;
 
 public class Gymbro {
     public String nombre;

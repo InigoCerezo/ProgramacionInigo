@@ -1,4 +1,4 @@
-package Tema5.ejercicio2;
+package Tema5.coleccion.ejercicio2;
 
 import java.util.HashMap;
 import java.util.Map;
