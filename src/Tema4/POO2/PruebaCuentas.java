@@ -1,7 +1,6 @@
 package Tema4.POO2;
 
 import java.util.Scanner;
-//no se lo que pasa, tiene errores pero el código corre y funciona como le digo, no se que es esto, tengo miedo
 public class PruebaCuentas {
 
     static final int MAX_PERSONAS = 5;
