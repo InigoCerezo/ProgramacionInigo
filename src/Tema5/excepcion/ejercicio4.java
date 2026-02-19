@@ -12,6 +12,7 @@ public class ejercicio4 {
     public static void main(String[] args) {
         int n;
         boolean b = true;
+        char exit;
         System.out.println(rng);
         for (int i = 0; i < rng; i++) {
             vector[i] = rd.nextInt(10) + 1;
@@ -21,8 +22,14 @@ public class ejercicio4 {
             try {
                 n = sc.nextInt();
                 System.out.println("Posición: " + n + "Valor: " + vector[n]);
+                System.out.println("¿Quieres salir? (Y/N)");
+                exit = sc.next().charAt(0);
+                exit = Character.toLowerCase(exit);
+                if (exit == 'y') {
+                    b = false;
+                }
             } catch (Exception e) {
-                System.out.println("Eso no te ha dejado. Código error:\n" + e);
+                System.out.println("Eso no te ha dejado. Código error:\n" + e+"\n saliendo...");
                 b = false;
             }
         }

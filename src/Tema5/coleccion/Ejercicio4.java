@@ -4,20 +4,22 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Ejercicio1 {
+import static java.lang.Thread.sleep;
+
+public class Ejercicio4 {
     static Scanner sc = new Scanner(System.in);
     public static void menu() {
-        System.out.println("Carro de compra");//menu global
+        System.out.println("Menu compra");//menu global
         System.out.println("--------------------------------------");
         System.out.println("a - Añadir un artículo a la lista");
         System.out.println("b - Añadir un artículo al carrito de compra");
         System.out.println("c - Ver lista y carrito de compra");
+        System.out.println("d - Ver artículos pendientes de añadir al carrito");
         System.out.println("x - Salir");
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         boolean menu = true;
         char chos;
-
         Set<String> lista = new HashSet<>();
         Set<String> carro = new HashSet<>();
         while (menu) {
@@ -27,15 +29,23 @@ public class Ejercicio1 {
             switch(chos){
                 case 'a':
                     addThing(lista);
+                    clear();
                     break;
                 case 'b':
                     addThing(carro);
+                    clear();
                     break;
                 case 'c':
                     System.out.println("Lista:");
                     seeThing(lista);
+                    sleep(1000);
                     System.out.println("Carro:");
                     seeThing(carro);
+                    clear();
+                    break;
+                case 'd':
+                    seeMissingThing(lista, carro);
+                    clear();
                     break;
                 case 'x':
                     menu = false;
@@ -61,9 +71,24 @@ public class Ejercicio1 {
             }
         }while(!ojbeto.equals("no"));
     }
-    public static void seeThing(Set<String> thing){
+    public static void seeThing(Set<String> thing) throws InterruptedException {
         for(String s : thing){
+            sleep(200);
             System.out.println(s);
+        }
+    }
+    public static void seeMissingThing(Set<String> lista, Set<String> carro) throws InterruptedException {
+        Set<String> lista2 = new HashSet<>(lista);
+        lista2.removeAll(carro);
+        System.out.println("Falta por comprar:");
+        for(String s : lista2){
+            System.out.println(s);
+            sleep(200);
+        }
+    }
+    public static void clear(){
+        for (int i = 0;i<20;i++){
+            System.out.println();
         }
     }
 }

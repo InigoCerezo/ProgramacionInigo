@@ -60,29 +60,31 @@ public class PruebaCuentas {
     public static void crearPersona() {
         if (contadorPersonas >= MAX_PERSONAS) {
             System.out.println("Error: Base de datos llena. No caben más personas.");
-            return;
-        }
+        }else{
 
-        System.out.print("Introduce el DNI: ");
-        String dni = sc.nextLine();
+            System.out.print("Introduce el DNI: ");
+            String dni = sc.nextLine();
 
-        if (buscarPersona(dni) == null) {
-            listaPersonas[contadorPersonas] = new Persona(dni);
-            contadorPersonas++;
-            System.out.println("Persona creada correctamente. Total personas: " + contadorPersonas);
-        } else {
-            System.out.println("Error: Ya existe una persona con ese DNI.");
+            if (buscarPersona(dni) == null) {
+                listaPersonas[contadorPersonas] = new Persona(dni);
+                contadorPersonas++;
+                System.out.println("Persona creada correctamente. Total personas: " + contadorPersonas);
+            } else {
+                System.out.println("Error: Ya existe una persona con ese DNI.");
+            }
         }
     }
 
     //formula 2
     public static void crearCuenta() {
+        double saldo;
+        String num;
         Persona p = solicitarPersona();
         if (p != null) {
             System.out.print("Número de nueva cuenta: ");
-            String num = sc.nextLine();
+            num = sc.nextLine();
             System.out.print("Saldo inicial: ");
-            double saldo = sc.nextDouble();
+            saldo = sc.nextDouble();
             p.anadirCuenta(new Cuenta(num, saldo));
         }
     }
@@ -96,9 +98,10 @@ public class PruebaCuentas {
     //formula 4
     public static void realizarAbono() {
         Persona p = solicitarPersona();
+        String num;
         if (p != null) {
             System.out.print("Cuenta destino: ");
-            String num = sc.nextLine();
+            num = sc.nextLine();
             Cuenta c = p.getCuentaByNum(num);
             if (c != null) {
                 System.out.print("Cantidad nómina: ");
@@ -112,9 +115,10 @@ public class PruebaCuentas {
     //formula 5
     public static void realizarPago() {
         Persona p = solicitarPersona();
+        String num;
         if (p != null) {
             System.out.print("Cuenta origen pago: ");
-            String num = sc.nextLine();
+            num = sc.nextLine();
             Cuenta c = p.getCuentaByNum(num);
             if (c != null) {
                 System.out.print("Cantidad a pagar: ");
