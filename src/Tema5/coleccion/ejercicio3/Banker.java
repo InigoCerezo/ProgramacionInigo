@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Banker {
-    // Listas paralelas para guardar los datos de los usuarios
     private List<String> nombres;
     private List<Integer> edades;
     private List<String> dnis;
@@ -15,7 +14,6 @@ public class Banker {
         this.dnis = new LinkedList<>();
     }
 
-    // Ahora pasamos los datos sueltos en lugar de un objeto Usuario
     public void anadirACola(String nombre, int edad, String dni) {
         nombres.add(nombre);
         edades.add(edad);
