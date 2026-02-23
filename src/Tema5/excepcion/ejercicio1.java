@@ -11,7 +11,7 @@ public class ejercicio1 {
         int numero = sc.nextInt();
         System.out.println("Valor introducido: "+numero);
         } catch (InputMismatchException e) {
-            System.out.println("Valor introducido invalido, error: "+e);
+            System.err.println("Valor introducido invalido, error: "+e.getMessage());
         }
     }
 }

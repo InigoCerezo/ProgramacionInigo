@@ -18,7 +18,7 @@ public class Gato {
         if (nombre.length() >= 3) {
             this.nombre = nombre;
         } else{
-            throw new IllegalArgumentException("\nEl nombre debe tener 3 letras");
+            throw new IllegalArgumentException("\nEl nombre debe tener 3 letras.");
         }
     }
     public int getEdad() {
@@ -28,7 +28,7 @@ public class Gato {
         if (edad >= 0) {
             this.edad = edad;
         } else {
-            throw new IllegalArgumentException("\nLa edad debe ser positiva");
+            throw new IllegalArgumentException("\nLa edad debe ser positiva.");
         }
     }
     @Override

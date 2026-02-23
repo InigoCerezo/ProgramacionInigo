@@ -28,7 +28,9 @@ public class ejercicio4 {
                 if (exit == 'y') {
                     b = false;
                 }
-            } catch (Exception e) {
+            }
+
+        catch (Exception e) {
                 System.out.println("Eso no te ha dejado. Código error:\n" + e+"\n saliendo...");
                 b = false;
             }

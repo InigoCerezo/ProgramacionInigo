@@ -30,11 +30,11 @@ public class ejercicio5 {
                         System.out.println("La letra no es valida");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Error fatal: "+e);
+                System.out.println("Error fatal: "+e.getMessage());
                 b = false;
             }
             catch (Exception e) {
-                System.out.println("Error: " +e);
+                System.out.println("Error: " +e.getMessage());
             }
         }
     }
@@ -48,8 +48,7 @@ public class ejercicio5 {
     }
     public static void printNegative(int n) throws Exception{
         if (n >= 0){
-            System.out.println("no es negativo");
-            throw new Exception();
+            throw new Exception("no es negativo");
         }else{
             System.out.println("Negativo");
         }
