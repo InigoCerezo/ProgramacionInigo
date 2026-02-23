@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class ejercicio3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean b = true;
         double[] eggies = new double[5];
         try{
             for (int i = 0; i < eggies.length; i++) {
