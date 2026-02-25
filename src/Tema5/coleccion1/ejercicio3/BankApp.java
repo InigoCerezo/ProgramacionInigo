@@ -1,6 +1,5 @@
-package Tema5.coleccion.ejercicio3;
+package Tema5.coleccion1.ejercicio3;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.Thread.sleep;

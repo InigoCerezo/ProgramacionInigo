@@ -1,4 +1,4 @@
-package Tema5.coleccion;
+package Tema5.coleccion1;
 
 import java.util.HashSet;
 import java.util.Scanner;

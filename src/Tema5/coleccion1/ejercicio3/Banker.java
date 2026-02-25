@@ -1,4 +1,4 @@
-package Tema5.coleccion.ejercicio3;
+package Tema5.coleccion1.ejercicio3;
 
 import java.util.LinkedList;
 import java.util.List;

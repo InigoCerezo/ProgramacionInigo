@@ -1,12 +1,12 @@
 package tema6.Ej7yEj8;
 
 public class Fireball implements AdvancedAtk {
-    private int costeMana;
-    private int danoMagico;
+    private int manaReq;
+    private int magic;
 
-    public Fireball(int costeMana, int danoMagico) {
-        this.costeMana = costeMana;
-        this.danoMagico = danoMagico;
+    public Fireball(int manaReq, int magic) {
+        this.manaReq = manaReq;
+        this.magic = magic;
     }
 
     @Override
@@ -17,12 +17,12 @@ public class Fireball implements AdvancedAtk {
     @Override
     public int[] coste() {
         //solo devuelve coste de mana
-        return new int[] { 0, costeMana };
+        return new int[] { 0, manaReq };
     }
 
     @Override
     public int[] danoInfligido() {
         //solo inflige daño mágico
-        return new int[] { 0, danoMagico };
+        return new int[] { 0, magic };
     }
 }
