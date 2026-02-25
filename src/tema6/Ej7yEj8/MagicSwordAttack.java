@@ -1,16 +1,16 @@
 package tema6.Ej7yEj8;
 
 public class MagicSwordAttack implements AdvancedAtk {
-    private int costeEsfuerzo;
-    private int costeMana;
-    private int danoFisico;
-    private int danoMagico;
+    private int nrgReq;
+    private int manaReq;
+    private int physical;
+    private int magic;
 
-    public MagicSwordAttack(int costeEsfuerzo, int costeMana, int danoFisico, int danoMagico) {
-        this.costeEsfuerzo = costeEsfuerzo;
-        this.costeMana = costeMana;
-        this.danoFisico = danoFisico;
-        this.danoMagico = danoMagico;
+    public MagicSwordAttack(int nrgReq, int manaReq, int physical, int magic) {
+        this.nrgReq = nrgReq;
+        this.manaReq = manaReq;
+        this.physical = physical;
+        this.magic = magic;
     }
 
     @Override
@@ -21,13 +21,13 @@ public class MagicSwordAttack implements AdvancedAtk {
     @Override
     public int[] coste() {
         //devuelve ambos costes
-        return new int[] { costeEsfuerzo, costeMana };
+        return new int[] { nrgReq, manaReq };
     }
 
     @Override
     public int[] danoInfligido() {
         //devuelve ambos tipos de daño
-        return new int[] { danoFisico, danoMagico };
+        return new int[] { physical, magic };
     }
     /*
     no se si lo que quiero yo hacer es posible con este
