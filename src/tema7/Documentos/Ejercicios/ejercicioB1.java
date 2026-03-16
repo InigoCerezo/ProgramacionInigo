@@ -15,6 +15,7 @@ public class ejercicioB1 {
         FileReader f = new FileReader(fileName);
         BufferedReader b = new BufferedReader(f);
         while((kek = b.readLine()) != null){
+            //hecho de tal manera de que si pones un string se peta el programa
             int num = Integer.parseInt(kek);
             if (major < num){
                 major = num;
