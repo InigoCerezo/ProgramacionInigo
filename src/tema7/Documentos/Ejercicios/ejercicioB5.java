@@ -37,7 +37,7 @@ public class ejercicioB5 {
         }
     }
     public static void sage(){
-        //me resultó facil
+        //me resultó facil hacer esto no se
         String letras = "abcdefghijklmnñopqrstuvwxyz";
         for(int i = 0; i < letras.length(); i++){
             String s = letras.charAt(0) + "";
