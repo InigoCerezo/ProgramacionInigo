@@ -28,7 +28,6 @@ public class ejercicioB3 {
             Collections.sort(lines);
             Path destinoPath = Paths.get(b.getAbsolutePath());
             Files.write(destinoPath,lines);
-            //BufferedReader
         } catch (IOException e) {
             System.err.println("Error al procesar un archivo. Asegurate de que existe. "+e.getMessage());
         }
@@ -47,7 +46,6 @@ public class ejercicioB3 {
             Collections.sort(lines);
             Path destinoPath = Paths.get(b.getAbsolutePath());
             Files.write(destinoPath,lines);
-            //BufferedReader
         } catch (IOException e) {
             System.err.println("Error al procesar un archivo. Asegurate de que existe. "+e.getMessage());
         }
