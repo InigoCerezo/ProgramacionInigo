@@ -32,7 +32,6 @@ public class ejercicioB3 {
         } catch (IOException e) {
             System.err.println("Error al procesar un archivo. Asegurate de que existe. "+e.getMessage());
         }
-        sc.close();
         /*
         String trial = "/media/inicermar/flarp/IdeaProjects/ProgramacionInigo/src/tema7/Documentos/usa_personas.txt";
         String error = "/media/inicermar/flarp/IdeaProjects/ProgramacionInigo/src/tema7/Documentos/usa_personas_sorted.txt";
@@ -52,6 +51,7 @@ public class ejercicioB3 {
         } catch (IOException e) {
             System.err.println("Error al procesar un archivo. Asegurate de que existe. "+e.getMessage());
         }
-        sc.close();*/
+        */
+        sc.close();
     }
 }
