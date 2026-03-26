@@ -11,7 +11,6 @@ public class ejercicio1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String fileName = "usuario.txt";
-        //String fileName = "/media/inicermar/flarp/IdeaProjects/ProgramacionInigo/src/tema7/datos.txt";
         Path filePath = Paths.get(fileName);
         try {
             System.out.println("Introduce tu nombre:");
