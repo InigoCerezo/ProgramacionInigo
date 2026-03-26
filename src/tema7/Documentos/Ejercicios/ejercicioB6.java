@@ -12,12 +12,12 @@ public class ejercicioB6 {
         Scanner sc = new Scanner(System.in);
         boolean check = false;
         int pos = 0;
-        System.out.println("Introduce un número para ver si aparece en pi");
-        int num = sc.nextInt();
-        String search = String.valueOf(num);
         String pi = "/media/inicermar/flarp/IdeaProjects/ProgramacionInigo/src/tema7/Documentos/pi-million.txt";
         Path path = Paths.get(pi);
         String contenido = Files.readString(path);
+        System.out.println("Introduce un número para ver si aparece en pi");
+        int num = sc.nextInt();
+        String search = String.valueOf(num);
         char[] pees = contenido.toCharArray();
         char[] tgt = search.toCharArray();
         for (int i = 0; i <= pees.length - tgt.length; i++) {
