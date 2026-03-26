@@ -32,6 +32,7 @@ public class ejercicioB5 {
                 }
 
             }
+            System.out.println("Diccionario ordenado.");
         }catch(Exception e){
             System.err.println("Error al ejecutar: " + e.getMessage());
         }
