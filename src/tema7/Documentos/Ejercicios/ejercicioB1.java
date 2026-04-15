@@ -12,6 +12,7 @@ public class ejercicioB1 {
         String fileName = "/media/inicermar/flarp/IdeaProjects/ProgramacionInigo/src/tema7/Documentos/numeros.txt";
         String kek;
         int major = 0;
+        int minor = 99999999;
         FileReader f = new FileReader(fileName);
         BufferedReader b = new BufferedReader(f);
         while((kek = b.readLine()) != null){
@@ -20,8 +21,11 @@ public class ejercicioB1 {
             if (major < num){
                 major = num;
             }
+            if (minor > num){
+                minor = num;
+            }
         }
-        System.out.println(major);
-
+        System.out.println("Numero mayor: "+major);
+        System.out.println("Numero menor: "+minor);
     }
 }
