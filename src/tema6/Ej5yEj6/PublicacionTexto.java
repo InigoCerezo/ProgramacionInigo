@@ -21,6 +21,6 @@ public class PublicacionTexto implements Reaccion {
 
     @Override
     public void comentar(String textoCom) {
-        System.out.println("Comentario en el texto de " + autor + ": " + textoCom);
+        System.out.println("Comentario en el texto.txt de " + autor + ": " + textoCom);
     }
 }

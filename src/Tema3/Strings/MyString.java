@@ -105,7 +105,7 @@ public class MyString {
         //inicializamos valores también
         char letra;
 
-        // recorremos el texto carácter por carácter
+        // recorremos el texto.txt carácter por carácter
         for (int i = 0; i < textoBajo.length(); i++) {
             letra = textoBajo.charAt(i);
             // verificamos si la letra coincide con alguna vocal
@@ -139,37 +139,37 @@ public class MyString {
             choose = sc.next().charAt(0);
             switch(choose){
                 case 'a':
-                    System.out.println("Introduce un texto: ");
+                    System.out.println("Introduce un texto.txt: ");
                     sc.nextLine();
                     cad1 = sc.nextLine();
                     System.out.println("Input: " + cad1 + "\nEn mayúsculas: " + upper(cad1) + "\nInvertido: " + inversor(cad1) + "\nAmbas: " + upper(inversor(cad1)));
                     break;
                 case 'b':
-                    System.out.println("Introduce un texto: ");
+                    System.out.println("Introduce un texto.txt: ");
                     sc.nextLine();
                     cad1 = sc.nextLine();;
                     System.out.println("Hay " + vocales(cad1) + " vocales.");
                     break;
                 case 'c':
-                    System.out.print("Introduce un texto: ");
+                    System.out.print("Introduce un texto.txt: ");
                     sc.nextLine();
                     cad1 = sc.nextLine();
                     cad2 = longestWord(cad1);
                     System.out.println("La palabra mas larga es: " + cad2);
                     break;
                 case 'd':
-                    System.out.print("Introduce un texto: ");
+                    System.out.print("Introduce un texto.txt: ");
                     sc.nextLine();
                     cad1 = sc.nextLine();
                     System.out.print("Introduce la palabra a buscar: ");
                     cad2 = sc.next();
-                    System.out.println("Veces que se ha encontrado " + cad2 + " en el texto: " + snipe(cad1, cad2));
+                    System.out.println("Veces que se ha encontrado " + cad2 + " en el texto.txt: " + snipe(cad1, cad2));
                     break;
                 case 'e':
-                    System.out.println("Introduce un texto: ");
+                    System.out.println("Introduce un texto.txt: ");
                     sc.nextLine();
                     cad1 = sc.nextLine();
-                    System.out.println("El texto introducido tiene " + conteo(cad1) + " palabras.");
+                    System.out.println("El texto.txt introducido tiene " + conteo(cad1) + " palabras.");
                     break;
                 case 'f':
                     System.out.println("Introduce un número de teléfono (en este formato: 34111222333): ");
@@ -181,7 +181,7 @@ public class MyString {
                     }
                     break;
                 case 'g':
-                    System.out.println("Introduce un texto, pero no uses tildes: ");
+                    System.out.println("Introduce un texto.txt, pero no uses tildes: ");
                     sc.nextLine();
                     cad1 = sc.nextLine();
                     System.out.println("En '" + cad1 + "' hay: \n");

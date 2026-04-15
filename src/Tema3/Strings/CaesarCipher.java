@@ -64,7 +64,7 @@ public class CaesarCipher {
         Scanner sc = new Scanner(System.in);
         String original, mayus, cipher, decipher;
         char point;
-        System.out.println("Introduce un texto (cifrado o no): ");
+        System.out.println("Introduce un texto.txt (cifrado o no): ");
         original = sc.nextLine();
         mayus = original.toUpperCase();
         menuCeasar();
