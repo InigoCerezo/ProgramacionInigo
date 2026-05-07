@@ -163,7 +163,7 @@ public class ejercicioHogwart {
             if(consulta6.executeUpdate()==1){
                 System.out.println("Se ha podido borrar la asignatura seleccionada.");
             }else{
-                System.err.println("No se ha podido borrar la nueva asignatura seleccionada. ¿Seguro de que existe?");
+                System.err.println("No se ha podido borrar la asignatura seleccionada. ¿Seguro de que existe?");
             }
         } catch (RuntimeException | SQLException e) {
             throw new RuntimeException(e);
